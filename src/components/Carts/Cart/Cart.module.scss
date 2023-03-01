@@ -1,0 +1,119 @@
+.configItem {
+    background: #242F38;
+    border-radius: 16px;
+    padding: 40px 64px 40px 0;
+    display: flex;
+    align-items: center;
+    // width: 100%;
+
+    & .description {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 64px;
+
+        & .badge {
+            background: #FFFFFF;
+            border-radius: 8px;
+            padding: 4px 8px 0;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            line-height: 1;
+            color: #1E272E;
+
+            & span {
+                font-family: 'Khula', sans-serif;
+                font-weight: 800;
+                font-size: 20px;
+                margin-right: 4px;
+            }
+
+        }
+
+        & .title {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.3;
+            margin: 20px 0;
+            color: #fff;
+            font-weight: 400;
+            font-size: 20px;
+
+            text-align: center;
+
+            & span {
+                font-weight: 700;
+                font-size: 36px;
+
+                white-space: nowrap;
+            }
+        }
+
+
+    }
+
+    & .boxImg {
+        width: 100%;
+
+        & img {
+            width: 100%;
+        }
+    }
+
+
+}
+
+@media screen and (max-width: 1400px) {
+    .configItem {
+        padding: 30px 34px 30px 0;
+
+        .description {
+
+            padding: 0 34px;
+
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .configItem {
+        margin-bottom: 40px;
+
+        & .boxImg {
+            width: 100%;
+            // height: 390px;
+
+            & img {
+                // height: 100%;
+                width: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 610px) {
+    .configItem {
+        flex-direction: column;
+        padding-top: 0;
+        padding-bottom: 0;
+
+        & .boxImg {
+            // height: 30%;
+
+            & img {
+                border-top-left-radius: 16px;
+                border-top-right-radius: 16px;
+            }
+        }
+
+        .description {
+            button {
+                margin-bottom: 30px;
+            }
+        }
+
+    }
+}
