@@ -5,29 +5,31 @@
     border: none;
     align-items: center;
     cursor: pointer;
-    transition: .3s;
+    transition: 0.3s;
+    padding-left: 0;
+    padding: 0 12px 16px 0;
 
     .icon {
         display: flex;
         align-items: center;
         justify-content: center;
         margin-right: 10px;
-        transition: .3s;
+        transition: 0.3s;
     }
 
     .text {
-        transition: .3s;
+        transition: 0.3s;
         padding: 4px 0 0 0;
         font-weight: 400;
         font-size: 14px;
         color: #fff;
-        font-family: 'Khula', sans-serif;
+        font-family: "Khula", sans-serif;
         font-style: normal;
     }
 
     &:hover {
         .icon {
-            opacity: .8;
+            opacity: 0.8;
         }
 
         .text {

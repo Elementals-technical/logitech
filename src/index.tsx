@@ -7,6 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 
 import { ThreekitProvider } from '@threekit-tools/treble';
 import { Config3DMode } from './page/Config3DMode/Config3DMode';
+import { MainPage } from './page/MainPage/MainPage';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -22,7 +23,7 @@ const projects = {
   },
   products: {
     preview: {
-      assetId: 'dcfb597f-5668-4b7f-b999-bacb4597f25d',
+      assetId: '5d5d8abb-92a8-4186-b788-e08c2999c656',
     },
   },
 };
@@ -44,9 +45,8 @@ root.render(
         <App />
       </BrowserRouter>
       {/* <MainPage /> */}
-      <Config3DMode />
-      {/* <PlayerComponent />
-      <InterfaceComponent /> */}
+      {/* <Config3DMode /> */}
+      <App />
       <div>
 
       </div>

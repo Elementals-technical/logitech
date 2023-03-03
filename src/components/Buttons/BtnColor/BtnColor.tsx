@@ -9,11 +9,12 @@ import s from './BtnColor.module.scss'
 interface BtnColorProps {
     onClick?: () => void;
     color?: string;
+    isActive: boolean;
 
 }
 
 
-export const BtnColor: React.FC<BtnColorProps> = ({ onClick, color }) => {
+export const BtnColor: React.FC<BtnColorProps> = ({ onClick, color, isActive }) => {
     /**
      * Обробник кліку на кнопці
      */
@@ -23,10 +24,13 @@ export const BtnColor: React.FC<BtnColorProps> = ({ onClick, color }) => {
         }
     };
 
-    const style: CSSProperties = {
+    let style: CSSProperties = {
         backgroundColor: color,
     };
-
+    if (isActive) style = {
+        ...style,
+        borderColor: '#fff'
+    }
 
     return (
         <div className={s.btnColor} style={style} onClick={handleClick}></div>

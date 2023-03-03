@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { CSSProperties } from 'react'
+import { Button } from '../Button/Button';
 import s from './BtnTypeLoyaut.module.scss'
 
 /**
@@ -8,10 +9,11 @@ import s from './BtnTypeLoyaut.module.scss'
 interface BtnTypeLoyautProps {
     onClick?: () => void;
     name: string;
+    isActive: boolean
 
 }
 
-export const BtnTypeLoyaut: React.FC<BtnTypeLoyautProps> = ({ onClick, name }) => {
+export const BtnTypeLoyaut: React.FC<BtnTypeLoyautProps> = ({ onClick, name, isActive }) => {
     /**
   * Обробник кліку на кнопці
   */
@@ -20,7 +22,13 @@ export const BtnTypeLoyaut: React.FC<BtnTypeLoyautProps> = ({ onClick, name }) =
             onClick();
         }
     };
+    let style: CSSProperties = {}
+    if (isActive) style = {
+        borderColor: '#fff'
+
+    }
+   
     return (
-        <div className={s.btn} onClick={handleClick}>{name}</div>
+        <button className={s.btn} onClick={handleClick} style={style}>{name}</button>
     )
 }

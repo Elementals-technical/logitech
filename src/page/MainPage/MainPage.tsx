@@ -6,7 +6,8 @@ import mouse from './../../assets/img/mouse.png'
 import keyboard_1 from './../../assets/img/keyboard_1.png'
 import { Button } from '../../components/Buttons/Button/Button'
 import { Cart } from '../../components/Carts/Cart/Cart'
-import { IntroductorySection } from './sections/IntroductorySection /IntroductorySection'
+import { IntroductorySection } from './sections/IntroductorySection/IntroductorySection'
+import { RadialBG } from '../../assets/svg/radialBG'
 
 
 export const MainPage = () => {
@@ -15,6 +16,9 @@ export const MainPage = () => {
 
     return (
         <main className={`${s.main} ${s.container}`}>
+            <div className={s.bg}>
+                <RadialBG />
+            </div>
             <IntroductorySection />
             <section className={s.sectionConfig}>
                 <div className={s.title}>Personalize with ease</div>

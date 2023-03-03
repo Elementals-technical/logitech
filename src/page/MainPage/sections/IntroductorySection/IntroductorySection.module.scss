@@ -1,14 +1,4 @@
- .bg {
-     position: absolute;
-     left: 50%;
-     top: 0;
-     transform: translate(-50%, -50%);
-     width: 100%;
 
-     & svg {
-         width: 100;
-     }
- }
 
  .description_box {
      display: flex;
@@ -54,7 +44,7 @@
 
  .description_config {
      display: flex;
-     margin: 40px auto;
+     margin: 30px auto;
      position: relative;
 
      &::before {

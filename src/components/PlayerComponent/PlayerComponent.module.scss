@@ -11,7 +11,36 @@
         top: 100px;
         width: 100%;
         height: 100%;
+        & .player {
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+        }
     }
-
-
+}
+.imgBG {
+    // position: absolute;
+    // z-index: -1;
+    // /* width: 100%; */
+    // height: 110%;
+}
+.wrapImgBD {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    left: 0%;
+    top: -290px;
+    & svg {
+        width: 100%;
+    }
+}
+.wrapSvgRadial {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    left: 0%;
+    top: -290px;
+    & svg {
+        width: 100%;
+    }
 }
