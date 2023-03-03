@@ -1,8 +1,15 @@
- .bg{
-    position: absolute;
-    left: 0;
-    top: 0;
+ .bg {
+     position: absolute;
+     left: 50%;
+     top: 0;
+     transform: translate(-50%, -50%);
+     width: 100%;
+
+     & svg {
+         width: 100;
+     }
  }
+
  .description_box {
      display: flex;
      flex-direction: column;

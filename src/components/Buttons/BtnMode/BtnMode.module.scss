@@ -1,0 +1,22 @@
+.btn_mode {
+    display: flex;
+    outline: none;
+    background: none;
+    align-items: center;
+    cursor: pointer;
+    transition: .3s;
+    border: 1px solid #FFFFFF;
+    border-radius: 8px;
+    padding: 8px 16px 6px;
+    color: #FFFFFF;
+    font-family: 'Khula', sans-serif;
+    font-style: normal;
+    transition: .3s;
+    font-weight: 400;
+    font-size: 14px;
+
+    &:hover {
+        border-color: #808E9B;
+        color: #808E9B;
+    }
+}

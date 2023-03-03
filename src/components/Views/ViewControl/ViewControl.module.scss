@@ -1,0 +1,20 @@
+.viewControl {
+    display: flex;
+    align-items: center;
+}
+
+.name {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    color: #fff;
+    font-family: 'Khula', sans-serif;
+    font-style: normal;
+    margin-right: 10px;
+}
+
+.btnWrap {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: auto auto;
+}

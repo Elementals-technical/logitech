@@ -1,0 +1,19 @@
+.wrap {
+    display: grid;
+    gap: 8px;
+}
+
+.wrapColor {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 36px);
+    gap: 10px; 
+}
+
+.wrapTypeLoyaut {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 60px);
+    gap: 10px; 
+}
+.wrapReset{
+    padding: 19px 0 8px;
+}

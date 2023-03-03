@@ -21,9 +21,13 @@ button {
     &:hover {
         opacity: .7;
     }
+
+    display: flex;
+    align-items: center;
 }
+
 @media screen and (max-width: 992px) {
     button {
-       font-size: 18px;
+        font-size: 18px;
     }
 }

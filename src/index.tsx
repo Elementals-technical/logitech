@@ -5,8 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
 
-import { Cards, FlatForm, Player, Share, ThreekitProvider, Zoom } from '@threekit-tools/treble';
-import { MainPage } from './page/MainPage/MainPage';
+import { ThreekitProvider } from '@threekit-tools/treble';
+import { Config3DMode } from './page/Config3DMode/Config3DMode';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -16,13 +16,13 @@ const root = ReactDOM.createRoot(
 const projects = {
   credentials: {
     preview: {
-      publicToken: '61f6a97b-0763-40ca-9be5-ead3421b9aaf',
-      orgId: '73fae6a8-b627-4cbd-a0b9-872cc83d386b',
+      publicToken: 'b415e9b1-8f0e-49bd-9678-307d3a6cb3c3',
+      orgId: '9eba6177-9cb1-4224-8e06-4f0d0f7cabbd',
     },
   },
   products: {
     preview: {
-      assetId: '3286bdae-e6aa-4dbe-bae8-7d1154a94c74',
+      assetId: 'dcfb597f-5668-4b7f-b999-bacb4597f25d',
     },
   },
 };
@@ -32,9 +32,6 @@ const threekitEnv = 'preview';
 const playerConfig = {
   allowMobileVerticalOrbit: true,
 };
-
-const { TopRightWidgets } = Player;
-
 
 root.render(
   <React.StrictMode>
@@ -46,8 +43,8 @@ root.render(
       <BrowserRouter>
         <App />
       </BrowserRouter>
-      <MainPage />
-
+      {/* <MainPage /> */}
+      <Config3DMode />
       {/* <PlayerComponent />
       <InterfaceComponent /> */}
       <div>

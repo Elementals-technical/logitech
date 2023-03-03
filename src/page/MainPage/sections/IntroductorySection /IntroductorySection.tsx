@@ -11,9 +11,7 @@ import { RadialBG } from '../../../../assets/svg/radialBG'
 export const IntroductorySection = () => {
     return (
         <section className={s.description_box}>
-            <div className={s.bg}>
-                <RadialBG />
-            </div>
+
             <div className={s.title}>
                 <span>Ultimate tool for customizing</span><br />
                 your computer input devices!
@@ -21,6 +19,9 @@ export const IntroductorySection = () => {
             <div className={s.subText}>Personalize your mouse and keyboard settings to your specific needs and preferences. Whether you're a gamer looking to optimize your gameplay or a professional looking for a more efficient workflow</div>
 
             <div className={s.description_config}>
+                <div className={s.bg}>
+                    <RadialBG />
+                </div>
                 <div className={`${s.description_config_item} ${s.description_keyboard}`}>
                     <div className={s.name}>
                         <span>G915</span>

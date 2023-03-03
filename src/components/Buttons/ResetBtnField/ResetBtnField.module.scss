@@ -1,0 +1,36 @@
+.btnReset {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    & .icon {
+        display: flex;
+        align-items: center;
+        margin-right: 8px;
+        transition: .3s;
+    }
+
+    & .name {
+        padding-top: 4px;
+        color: #808E9B;
+        font-weight: 400;
+        font-size: 14px;
+        font-family: 'Khula', sans-serif;
+        font-style: normal;
+        transition: .3s;
+    }
+
+    &:hover {
+        & .icon {
+            transform: rotate(180deg);
+        }
+
+        & .name {
+            opacity: .7;
+        }
+    }
+}

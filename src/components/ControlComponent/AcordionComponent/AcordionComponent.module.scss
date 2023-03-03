@@ -1,0 +1,35 @@
+.accordion {
+    background: #1E272E;
+
+    border-radius: 8px;
+    padding: 12px 24px 0px;
+
+    .accordionHeader {
+        background: #1E272E;
+        padding: 0px 0px 6px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        & .name {
+            color: #fff;
+            font-weight: 600;
+            font-size: 16px;
+            font-family: 'Khula', sans-serif;
+            font-style: normal;
+        }
+
+        & .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+    }
+
+    & .accordionContent {
+
+        
+    }
+}

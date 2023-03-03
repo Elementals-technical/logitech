@@ -1,0 +1,37 @@
+.btn_back {
+    display: flex;
+    outline: none;
+    background: none;
+    border: none;
+    align-items: center;
+    cursor: pointer;
+    transition: .3s;
+
+    .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 10px;
+        transition: .3s;
+    }
+
+    .text {
+        transition: .3s;
+        padding: 4px 0 0 0;
+        font-weight: 400;
+        font-size: 14px;
+        color: #fff;
+        font-family: 'Khula', sans-serif;
+        font-style: normal;
+    }
+
+    &:hover {
+        .icon {
+            opacity: .8;
+        }
+
+        .text {
+            transform: translate(-3px, 0);
+        }
+    }
+}
