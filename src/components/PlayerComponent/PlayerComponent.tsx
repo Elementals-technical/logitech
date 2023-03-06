@@ -9,10 +9,11 @@ export const PlayerComponent = () => {
     return (
         <div className={s.player_container}>
             <div className={s.wrapImgBD}>
-
                 <img src={light} className={s.imgBG} />
             </div>
-            <div className={s.wrapSvgRadial}>  <RadialBG />  </div>
+            <div className={s.wrapSvgRadial}>
+                <RadialBG />
+            </div>
             <div className={s.player}>
 
                 <Player minHeight="250px">

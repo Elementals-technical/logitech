@@ -20,6 +20,8 @@ export const BtnColor: React.FC<BtnColorProps> = ({ onClick, color, isActive }) 
      */
     const handleClick = () => {
         if (onClick) {
+            console.log('test');
+            
             onClick();
         }
     };

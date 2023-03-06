@@ -1,6 +1,6 @@
 import { getThreekitName, getThreekitValues } from "../threekitFunc/baseFuncThreekit";
 
-const getObjectActive3DConfig = (typeConfig: any) => {
+export const getObjectActive3DConfig = (typeConfig: any) => {
     //@ts-ignore
     const configurator = window.playerThreekit.getConfigurator();
     const displayAttributes = configurator.getDisplayAttributes()
@@ -42,6 +42,7 @@ const getObjectActive3DConfig = (typeConfig: any) => {
 
 
 export const changeTo3DConfig = (typeConfig: any) => {
+    debugger
     if (!typeConfig) return
     //@ts-ignore
     if (!window.playerThreekit) return

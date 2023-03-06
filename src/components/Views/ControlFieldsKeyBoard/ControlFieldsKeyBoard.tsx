@@ -14,7 +14,6 @@ export const ControlFieldsKeyBoard = (): any => {
     if (!attributes && !attributes['Customize']) attributes = {}
     const [attributes1, setConfiguration, metadata, price] = useNestedConfigurator('f1a61402-93a2-4369-96a0-bce24c25d7b1');
      
-     
     const infoAttributes = getInfoAttributes()
 
     let listAttribures = Object.values(attributes).filter((item: any) => Object.keys(infoAttributes).includes(item['name']))

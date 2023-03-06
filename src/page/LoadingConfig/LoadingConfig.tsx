@@ -1,46 +1,14 @@
-import { AwaitThreekitLoad, useNestedConfigurator, useThreekitInitStatus } from '@threekit-tools/treble/dist'
 import React, { useEffect } from 'react'
+import { useThreekitInitStatus } from '@threekit-tools/treble/dist'
 import { RadialBG } from '../../assets/svg/radialBG'
 import { SninerLoader } from '../../components/loaders/SninerLoader/SninerLoader'
 import light from './../../assets/img/light.png'
 import { LogoLogitech } from './../../assets/svg/logoLogitech'
 import s from './LoadingConfig.module.scss'
-import { getThreekitName, getThreekitValues } from './../../functionConfiguration/threekitFunc/baseFuncThreekit'
-import { useLocation } from 'react-router-dom'
-import { getTypeConfig } from '../../functionConfiguration/routing/baseUrl'
-import { changeTo3DConfig } from '../../functionConfiguration/routing/threekitRouting'
+
 export const LoadingConfig = () => {
     const hasLoaded = useThreekitInitStatus();
-    const nestedConfiguratorKeyBoard = useNestedConfigurator('Customize keyboard');
-    const nestedConfiguratorMouse = useNestedConfigurator('Customize mouse');
-    const { pathname } = useLocation()
-    const typeConfig = getTypeConfig(pathname)
 
-
-    useEffect(() => {
-        if (hasLoaded) {
-            //@ts-ignore
-            if (!window['playerThreekit']) {
-                //@ts-ignore
-                const playerThreekit = window.threekit.player.enableApi('player');
-                //@ts-ignore
-                window.playerThreekit = playerThreekit;
-                //@ts-ignore
-
-            }
-
-            if (typeConfig) {
-
-                changeTo3DConfig(typeConfig)
-
-
-
-            }
-
-
-
-        }
-    }, [hasLoaded]);
     return !hasLoaded ? (
         <div className={s.wrapPage}>
             <div className={s.bg}>
