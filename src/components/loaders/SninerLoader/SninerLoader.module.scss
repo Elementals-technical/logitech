@@ -1,15 +1,15 @@
 .loader {
-    position: relative;
-    min-width: 250px;
-    max-width: 250px;
-    min-height: 250px;
-    max-height: 250px;
+    width: 80px;
+    height: 80px;
+    border: 10px solid #808E9B;
+    border-bottom-color: #fff;
     border-radius: 50%;
-    background: linear-gradient(90deg, #3C40C6 -9%, #F53B57 30.51%, #FFD32A 71.94%, #05C46B 107.5%);
-    animation: animate 1.2s linear infinite;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
 }
 
-@keyframes animate {
+@keyframes rotation {
     0% {
         transform: rotate(0deg);
     }
@@ -17,42 +17,4 @@
     100% {
         transform: rotate(360deg);
     }
-}
-
-.loader span {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: linear-gradient(90deg, #3C40C6 -9%, #F53B57 30.51%, #FFD32A 71.94%, #05C46B 107.5%);
-}
-
-.loader span:nth-child(1) {
-    filter: blur(5px);
-}
-
-.loader span:nth-child(2) {
-    filter: blur(10px);
-}
-
-.loader span:nth-child(3) {
-    filter: blur(25px);
-}
-
-.loader span:nth-child(4) {
-    filter: blur(50px);
-}
-
-.loader:after {
-    content: '';
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-    background: #242F38;
-    // border: solid #fff 0px;
-    border-radius: 50%;
-    opacity: 0.7;
-    filter: blur(10);
 }

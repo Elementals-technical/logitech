@@ -10,6 +10,7 @@ const textConfig = {
 }
 
 export const getInfoConfig = (typeConfig: string, nameText: string) => {
+    if (!typeConfig) return ''
     const cloneTextConfig = JSON.parse(JSON.stringify(textConfig))
     return cloneTextConfig[typeConfig][nameText]
 

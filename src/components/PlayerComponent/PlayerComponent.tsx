@@ -1,8 +1,9 @@
 import React from 'react'
-import { Player } from '@threekit-tools/treble'
+import { Player, Share } from '@threekit-tools/treble'
 import light from './../../assets/img/light.png'
 import s from './PlayerComponent.module.scss'
 import { RadialBG } from '../../assets/svg/radialBG'
+import { LoaderPlayerChangeAttribute } from '../loaders/LoaderPlayerChangeAttribute/LoaderPlayerChangeAttribute'
 
 export const PlayerComponent = () => {
     return (
@@ -14,7 +15,9 @@ export const PlayerComponent = () => {
             <div className={s.wrapSvgRadial}>  <RadialBG />  </div>
             <div className={s.player}>
 
-                <Player minHeight="250px">  </Player>
+                <Player minHeight="250px">
+                    <LoaderPlayerChangeAttribute />
+                </Player>
             </div>
 
         </div>
