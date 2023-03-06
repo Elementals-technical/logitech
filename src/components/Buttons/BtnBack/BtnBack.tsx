@@ -8,21 +8,23 @@ import s from './BtnBack.module.scss'
  * @param {Function} onClick - Функція, яка буде викликана при натисканні на кнопку
  */
 interface BtnBackProps {
-    onClick?: () => void;
+    onHandle?: () => void;
 }
 
-export const BtnBack: React.FC<BtnBackProps> = ({ onClick }) => {
+export const BtnBack: React.FC<BtnBackProps> = ({ onHandle: onHandle }) => {
     /**
      * Обробник кліку на кнопці
      */
-    const handleClick = () => {
-        if (onClick) {
-            onClick();
+    const handleClick = (onHandle: any) => {
+        console.log('onHandle', onHandle);
+
+        if (onHandle) {
+            onHandle();
         }
     };
 
     return (
-        <button className={s.btn_back} onClick={handleClick}>
+        <button className={s.btn_back} onClick={() => handleClick(onHandle)}>
             <div className={s.icon}>
                 <BackIcon />
             </div>

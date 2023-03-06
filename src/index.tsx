@@ -3,11 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import { ThreekitProvider } from '@threekit-tools/treble';
-import { Config3DMode } from './page/Config3DMode/Config3DMode';
-import { MainPage } from './page/MainPage/MainPage';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -34,6 +32,7 @@ const playerConfig = {
   allowMobileVerticalOrbit: true,
 };
 
+
 root.render(
   <React.StrictMode>
     <ThreekitProvider
@@ -41,12 +40,9 @@ root.render(
       threekitEnv={threekitEnv}
       playerConfig={playerConfig}
     >
-      <BrowserRouter>
+      <Router>
         <App />
-      </BrowserRouter>
-      {/* <MainPage /> */}
-      {/* <Config3DMode /> */}
-      <App />
+      </Router>
       <div>
 
       </div>

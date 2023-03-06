@@ -8,9 +8,11 @@ import { Button } from '../../components/Buttons/Button/Button'
 import { Cart } from '../../components/Carts/Cart/Cart'
 import { IntroductorySection } from './sections/IntroductorySection/IntroductorySection'
 import { RadialBG } from '../../assets/svg/radialBG'
+import { useNavigate } from 'react-router-dom'
 
 
 export const MainPage = () => {
+    const navigate = useNavigate();
 
 
 
@@ -34,7 +36,7 @@ export const MainPage = () => {
                         Title={<><span>G915</span>LIGHTSPEED</>}
                         buttonClick={<Button
                             text='Customize keyboard'
-                            onClick={() => { }}
+                            onClick={() => { navigate("/keyboard"); }}
                         />}
                         classCart={s.keyboard_config}
                     />
@@ -48,7 +50,7 @@ export const MainPage = () => {
                         Title={<><span>PRO X</span>SUPERLIGHT</>}
                         buttonClick={<Button
                             text='Customize mouse'
-                            onClick={() => { }}
+                            onClick={() => { navigate("/mouse"); }}
                         />}
                         classCart={s.mouse_config}
                     />

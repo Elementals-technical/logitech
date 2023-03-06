@@ -2,10 +2,10 @@ import React from 'react'
 import { useLocation } from 'react-router-dom'
 import { getInfoConfig } from '../../../functionConfiguration/dataConfiguration/dataConfig'
 import { getTypeConfig } from '../../../functionConfiguration/routing/baseUrl'
-import { ViewControl } from '../ViewControl/ViewControl'
-import s from './HeaderInfoConfig.module.scss'
 
-export const HeaderInfoConfig = () => {
+import s from './NameModel.module.scss'
+
+export const NameModel = () => {
 
     const { pathname } = useLocation()
 
@@ -13,9 +13,6 @@ export const HeaderInfoConfig = () => {
 
 
     return (
-        <div className={s.hederConfig}>
-            <div className={s.nameModel}>{getInfoConfig(typeConfig, 'model')}</div>
-            <ViewControl />
-        </div>
+        <div className={s.name} >{getInfoConfig(typeConfig, 'name')}</div>
     )
 }
