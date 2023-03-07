@@ -17,7 +17,7 @@ const root = ReactDOM.createRoot(
 const projects = {
   credentials: {
     preview: {
-      publicToken: 'b415e9b1-8f0e-49bd-9678-307d3a6cb3c3',
+      publicToken: '1a743c11-2ce5-49b7-b221-dd27c905271a',
       orgId: '9eba6177-9cb1-4224-8e06-4f0d0f7cabbd',
     },
   },
