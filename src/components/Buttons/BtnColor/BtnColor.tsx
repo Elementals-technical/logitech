@@ -24,8 +24,7 @@ export const BtnColor: React.FC<BtnColorProps> = ({ onClick, color, isActive }) 
             onClick();
         }
     };
-    console.log('color', color);
-
+   
     let style: CSSProperties = {
         backgroundColor: color,
     };

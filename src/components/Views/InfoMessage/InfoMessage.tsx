@@ -10,7 +10,6 @@ interface InfoMessageProps {
 
 export const InfoMessage: React.FC<InfoMessageProps> = ({ Icon, onClick, text, style }) => {
     const handleClick = () => {
-        console.log('handleClick', handleClick);
 
         if (onClick) {
             onClick();

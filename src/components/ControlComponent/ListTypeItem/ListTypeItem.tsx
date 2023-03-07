@@ -16,8 +16,7 @@ export const ListTypeItem = ({ nameAttribute }: any) => {
         values = values.filter((item: any) => item['value'] !== 'Single Color')
     }
 
-
-    debugger
+ 
     return (
         <div className={s.mainColor}>
             <div className={s.wrapTypeLoyaut}>

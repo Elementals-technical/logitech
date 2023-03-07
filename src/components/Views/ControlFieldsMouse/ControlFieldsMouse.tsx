@@ -34,8 +34,7 @@ export const ControlFieldsMouse = (): any => {
 
     let [attributes]: any = useConfigurator();
     if (!attributes && !attributes['Customize']) attributes = {}
-    console.log('attributes', attributes);
-
+   
     const infoAttributesMouse = getInfoAttributesMouse()
 
     let listAttribures = Object.values(attributes).filter((item: any) => Object.keys(infoAttributesMouse).includes(item['name']))

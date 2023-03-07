@@ -42,8 +42,7 @@ export const AcordionComponent: React.FC<AccordionProps> = ({ title, children, i
             const childElement = contentRef.current.parentNode.childNodes;
 
             const heigthotherAcordion = (childElement.length) * 48 + 8 + 8 + 8 + 8 + 8- 24
-            console.log('allHeigth - heigthotherAcordion', allHeigth - heigthotherAcordion);
-
+           
             return `${allHeigth - heigthotherAcordion}px`;
         }
         return '0px';

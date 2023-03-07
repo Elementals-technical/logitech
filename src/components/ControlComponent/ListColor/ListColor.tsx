@@ -15,8 +15,7 @@ export const ListColor = ({ nameAttribute }: any) => {
             <div className={s.wrapColor}>
                 {values.map((value: any) => {
                     const colorRGB = value['metadata']['colorRGB'];
-                    console.log('value,', value);
-
+                   
                     return <BtnColor isActive={value.assetId === attribute.value.assetId} color={colorRGB} onClick={() => setAttribute(value['assetId'])} />
                 })}
             </div>
