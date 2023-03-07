@@ -1,0 +1,26 @@
+.btnAllReset {
+    background: #1E272E;
+    border-radius: 8px;
+    padding: 12px 8px;
+    display: flex;
+    align-items: center;
+    outline: none;
+    border: none;
+    cursor: pointer;
+
+    & .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 7px;
+    }
+
+    & .name {
+        font-family: "Gilroy";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        color: #808E9B;
+
+    }
+}

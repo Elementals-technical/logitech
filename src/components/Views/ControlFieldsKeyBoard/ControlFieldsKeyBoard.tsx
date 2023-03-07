@@ -8,12 +8,31 @@ import { getInfoAttributes, getInfoLabelAttribute, getInfoTypeAttribute } from '
 import { getThreekitName } from '../../../functionConfiguration/threekitFunc/baseFuncThreekit';
 import { ListColor } from '../../ControlComponent/ListColor/ListColor';
 import { ListTypeItem } from '../../ControlComponent/ListTypeItem/ListTypeItem';
+import { useStoreDispatch, useStoreSelector } from '../../..';
+import { getActiveSection } from '../../../store/selectors/selectors';
+import { useLocation } from 'react-router-dom';
+import { getTypeConfig } from '../../../functionConfiguration/routing/baseUrl';
+import { setOtpeningSection } from '../../../store/actions/Settings';
 
 export const ControlFieldsKeyBoard = (): any => {
+
+    const dispatch = useStoreDispatch()
+
+
+
+    const { pathname } = useLocation()
+    const typeConfig = getTypeConfig(pathname)
+    const idActiveSection = useStoreSelector(getActiveSection(typeConfig))
+
+    const handleChangeAcordion = (idSection: any) => {
+        const idNextSection = idActiveSection !== idSection ? idSection : ''
+        dispatch(setOtpeningSection({ typeConfig, idSection: idNextSection }))
+    }
+
+
     let [attributes]: any = useConfigurator();
     if (!attributes && !attributes['Customize']) attributes = {}
-    const [attributes1, setConfiguration, metadata, price] = useNestedConfigurator('f1a61402-93a2-4369-96a0-bce24c25d7b1');
-     
+
     const infoAttributes = getInfoAttributes()
 
     let listAttribures = Object.values(attributes).filter((item: any) => Object.keys(infoAttributes).includes(item['name']))
@@ -36,11 +55,11 @@ export const ControlFieldsKeyBoard = (): any => {
 
                 return (
 
-                    <AcordionComponent title={label}>
+                    <AcordionComponent isSelected={idActiveSection === threekitName} onChange={() => handleChangeAcordion(threekitName)} title={label}>
                         {type === 'color' && (<ListColor nameAttribute={item['name']} />)}
                         {type === 'list' && (<ListTypeItem nameAttribute={item['name']} />)}
                         <div className={s.wrapReset}>
-                            <ResetBtnField />
+                            <ResetBtnField nameSettings={[threekitName]} />
                         </div>
                     </AcordionComponent>
                 )

@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from "react-router-dom";
 
 import { ThreekitProvider } from '@threekit-tools/treble';
+import { createDispatchHook, createSelectorHook, Provider } from 'react-redux';
+import store from './store/store';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -26,27 +28,37 @@ const projects = {
   },
 };
 
-
 const threekitEnv = 'preview';
 const playerConfig = {
   allowMobileVerticalOrbit: true,
 };
 
+//@ts-ignore
+const store1Context: any = React.createContext();
+//@ts-ignore
+export const useStoreDispatch = createDispatchHook(store1Context);
+//@ts-ignore
+export const useStoreSelector = createSelectorHook(store1Context);
+
 
 root.render(
   <React.StrictMode>
-    <ThreekitProvider
-      project={projects}
-      threekitEnv={threekitEnv}
-      playerConfig={playerConfig}
-    >
-      <Router>
-        <App />
-      </Router>
-      <div>
+    <Provider store={store} context={store1Context}>
 
-      </div>
-    </ThreekitProvider>
+      <ThreekitProvider
+        project={projects}
+        threekitEnv={threekitEnv}
+        playerConfig={playerConfig}
+      >
+        <Router>
+          <App />
+        </Router>
+        <div>
+
+        </div>
+      </ThreekitProvider>
+
+    </Provider>
   </React.StrictMode>
 );
 

@@ -50,9 +50,9 @@ export const Config3DMode = () => {
                         <div className={s.boxControlConfig}>
                             <ControlPanel />
                         </div>
-                        <AwaitThreekitLoad>
+                       
                             <SetDefafaultValue />
-                        </AwaitThreekitLoad>
+               
 
                     </div>
 

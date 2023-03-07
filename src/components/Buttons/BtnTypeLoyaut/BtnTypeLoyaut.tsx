@@ -24,10 +24,11 @@ export const BtnTypeLoyaut: React.FC<BtnTypeLoyautProps> = ({ onClick, name, isA
     };
     let style: CSSProperties = {}
     if (isActive) style = {
-        borderColor: '#fff'
+        borderColor: '#fff',
+        color: '#fff'
 
     }
-   
+
     return (
         <button className={s.btn} onClick={handleClick} style={style}>{name}</button>
     )

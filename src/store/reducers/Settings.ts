@@ -14,13 +14,13 @@ export type errorT = {
     errorCategory: string;
 };
 
-type config = 'mouse' | 'keyboard'
+export type configType = 'mouse' | 'keyboard' | ''
 type viewConfig = '3D' | 'DESK'
 
 
 export type initialStateT = {
     viewConfig: {
-        typeConfig: config,
+        typeConfig: configType,
         viewConfig: viewConfig
     }
     configuration: {
@@ -32,6 +32,9 @@ export type initialStateT = {
             mouse: string,
             keyboard: string,
         }
+    },
+    loader: {
+        checkLoadThreekitPlayer: boolean
     }
 };
 
@@ -47,27 +50,71 @@ const initialState: initialStateT = {
         },
         activeSection: {
             mouse: '',
-            keyboard: '',
+            keyboard: 'Backplate color',
         }
     },
-    // loaging:{
-    //     loading:play
-    // }
+    loader: {
+        checkLoadThreekitPlayer: false
+    }
 };
 
 const Settings = (state = initialState, action: any) => {
     switch (action.type) {
-        // case TYPE_REDUCER.TYPE_CONFIG:
-        //     return {
-        //         ...state,
-        //         // modalState: {
-        //         //     modalInfo: action.payload.info || null,
-        //         //     modalList: {
-        //         //         ...state.modalState.modalList,
-        //         //         ...action.payload.list,
-        //         //     },
-        //         // },
-        //     };
+        case TYPE_REDUCER.TYPE_CONFIG: {
+            const { typeConfig }: any = action.payload;
+
+            return {
+                ...state,
+                viewConfig: {
+                    ...state['viewConfig'],
+                    typeConfig: typeConfig
+                }
+            };
+        }
+
+            break;
+        case TYPE_REDUCER.LOADING_PLAYER: {
+            const statusLoading: any = action.payload;
+
+            return {
+                ...state,
+                loader: {
+                    ...state['loader'],
+                    checkLoadThreekitPlayer: statusLoading
+                }
+
+            };
+        }
+
+            break;
+        case TYPE_REDUCER.SET_OPENING_SECTION: {
+            const { typeConfig, idSection }: any = action.payload;
+
+            return {
+                ...state,
+                configuration: {
+                    ...state['configuration'],
+                    activeSection: {
+                        ...state['configuration']['activeSection'],
+                        [typeConfig]: idSection,
+                    }
+                },
+
+            };
+            break;
+        }
+        case TYPE_REDUCER.SET_DEFAULT_VALUE: {
+            const defaultConfig: any = action.payload;
+
+            return {
+                ...state,
+                configuration: {
+                    ...state['configuration'],
+                    default: defaultConfig
+                }
+            }
+            break;
+        }
 
         default:
             return state;

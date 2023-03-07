@@ -1,5 +1,8 @@
 export const TYPE_REDUCER = {
-    EXAMMPLE_ACTION: "[config]::example action",
+    TYPE_CONFIG: "[config]::set type config",
+    LOADING_PLAYER: "[config]::set loading player",
+    SET_OPENING_SECTION: "[config]::set opening section type config",
+    SET_DEFAULT_VALUE: "[config]::set defaultConfig",
 
 };
 

@@ -42,7 +42,7 @@ export const getObjectActive3DConfig = (typeConfig: any) => {
 
 
 export const changeTo3DConfig = (typeConfig: any) => {
-    debugger
+     
     if (!typeConfig) return
     //@ts-ignore
     if (!window.playerThreekit) return

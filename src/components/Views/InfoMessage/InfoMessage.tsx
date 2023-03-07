@@ -10,15 +10,19 @@ interface InfoMessageProps {
 
 export const InfoMessage: React.FC<InfoMessageProps> = ({ Icon, onClick, text, style }) => {
     const handleClick = () => {
+        console.log('handleClick', handleClick);
+
         if (onClick) {
             onClick();
         }
     };
 
+    let classMessage = `${s.InfoMessage}`
+    if (!!onClick) classMessage += ` ${s.btn}`
     return (
-        <div className={s.InfoMessage} onClick={handleClick} style={style}>
-            <div className={s.icon}> {Icon && Icon}</div>
-            <div className={s.text}>{text}</div>
+        <div className={classMessage} style={style}>
+            <div className={s.icon} onClick={handleClick}> {Icon && Icon}</div>
+            <div className={s.text} onClick={handleClick}>{text}</div>
         </div>
     );
 }

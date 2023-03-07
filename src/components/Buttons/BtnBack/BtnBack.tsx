@@ -16,8 +16,7 @@ export const BtnBack: React.FC<BtnBackProps> = ({ onHandle: onHandle }) => {
      * Обробник кліку на кнопці
      */
     const handleClick = (onHandle: any) => {
-        console.log('onHandle', onHandle);
-
+       
         if (onHandle) {
             onHandle();
         }

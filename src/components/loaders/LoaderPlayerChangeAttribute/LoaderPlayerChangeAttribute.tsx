@@ -7,8 +7,7 @@ import s from './LoaderPlayerChangeAttribute.module.scss'
 export const LoaderPlayerChangeAttribute = () => {
 
     const hasLoaded = usePlayerLoadingStatus();
-    console.log('hasLoaded', hasLoaded);
-    const hasLoadedStatus = useThreekitInitStatus();
+     const hasLoadedStatus = useThreekitInitStatus();
 
     // if (!hasLoaded) return (
     //     <div className={s.wrapBox}>
