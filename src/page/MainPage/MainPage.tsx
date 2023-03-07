@@ -27,33 +27,39 @@ export const MainPage = () => {
                 <div className={s.description}>Start customizing your mouse and keyboard settings today for a completely personalized computing experience!</div>
 
                 <div className={s.listConfig}>
+                    <div className={s.wrapCart}>
+                        <Cart
+                            mouseImg={keyboard_1}
+                            Badge={<div className={s.badge}>
+                                <span>G</span>Siries
+                            </div>}
+                            Title={<><span>G915</span>LIGHTSPEED</>}
+                            buttonClick={<Button
+                                text='Customize keyboard'
+                                onClick={() => { navigate("/keyboard"); }}
+                            />}
+                            classCart={s.keyboard_config}
+                        />
+                        <div className={s.cart_bg}></div>
+                    </div>
 
-                    <Cart
-                        mouseImg={keyboard_1}
-                        Badge={<div className={s.badge}>
-                            <span>G</span>Siries
-                        </div>}
-                        Title={<><span>G915</span>LIGHTSPEED</>}
-                        buttonClick={<Button
-                            text='Customize keyboard'
-                            onClick={() => { navigate("/keyboard"); }}
-                        />}
-                        classCart={s.keyboard_config}
-                    />
 
+                    <div className={`${s.wrapCart} ${s.mouse}`}>
+                        <Cart
+                            mouseImg={mouse}
+                            Badge={<div className={s.badge}>
+                                <span>pro</span>Siries
+                            </div>}
+                            Title={<><span>PRO X</span>SUPERLIGHT</>}
+                            buttonClick={<Button
+                                text='Customize mouse'
+                                onClick={() => { navigate("/mouse"); }}
+                            />}
+                            classCart={s.mouse_config}
+                        />
+                        <div className={s.cart_bg}></div>
+                    </div>
 
-                    <Cart
-                        mouseImg={mouse}
-                        Badge={<div className={s.badge}>
-                            <span>pro</span>Siries
-                        </div>}
-                        Title={<><span>PRO X</span>SUPERLIGHT</>}
-                        buttonClick={<Button
-                            text='Customize mouse'
-                            onClick={() => { navigate("/mouse"); }}
-                        />}
-                        classCart={s.mouse_config}
-                    />
                 </div>
 
             </section>

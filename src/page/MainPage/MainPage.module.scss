@@ -126,9 +126,10 @@
     display: flex;
 
     .mouse_config {
-        margin-left: 17px;
+
         flex-direction: row-reverse;
         flex: 1 1 auto;
+        height: 100%;
 
         & .description {
             padding-right: 74px;
@@ -144,7 +145,6 @@
     }
 
     .keyboard_config {
-        margin-left: 17px;
         flex: 5 2 auto;
         padding-right: 0;
 
@@ -207,5 +207,58 @@
 @media screen and (max-width: 610px) {
     .container {
         padding: 110px 30px;
+    }
+}
+
+.wrapCart {
+    position: relative;
+
+
+    .cart_bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        background: linear-gradient(90deg, #3C40C6 -9%, #F53B57 30.51%, #FFD32A 71.94%, #05C46B 107.5%);
+        background-size: 400% 400%;
+        border-radius: 16px;
+        animation: gradient 4s ease infinite;
+        -webkit-animation: gradient 4s ease infinite;
+        -moz-animation: gradient 4s ease infinite;
+        z-index: -1;
+        transform: translate(-2px, -2px);
+        transition: filter 1s ease-in;
+        z-index: 0;
+        opacity: 0;
+        transition: .3s;
+    }
+
+    &:hover {
+        .cart_bg {
+            opacity: 1;
+
+        }
+
+    }
+}
+
+.mouse {
+    margin-left: 17px;
+}
+
+
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
     }
 }
