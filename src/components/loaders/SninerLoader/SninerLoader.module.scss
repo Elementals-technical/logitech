@@ -1,19 +1,43 @@
+ 
+
+
+$spinner-width: 10px;
+$spinner-color-bg: #808E9B;
+$spinner-color: #fff;
+
 .loader {
+    border-width: $spinner-width;
+    border-style: solid;
+    border-color: $spinner-color-bg $spinner-color-bg $spinner-color-bg $spinner-color;
     width: 80px;
     height: 80px;
-    border: 10px solid #808E9B;
-    border-bottom-color: #fff;
     border-radius: 50%;
-    display: inline-block;
-    box-sizing: border-box;
-    animation: rotation 1s linear infinite;
-}
+    animation: spin 1.5s infinite;
+    position: relative; 
 
-@keyframes rotation {
-    0% {
-        transform: rotate(0deg);
+    // margin: 6em auto; 
+
+    &:before,
+    &:after {
+        content: '';
+        width: $spinner-width;
+        height: $spinner-width;
+        border-radius: 50%;
+        background: $spinner-color;
+        position: absolute;
+        left: 1px;
     }
 
+    &:before {
+        top: 0;
+    }
+
+    &:after {
+        bottom: 0;
+    }
+}
+
+@keyframes spin {
     100% {
         transform: rotate(360deg);
     }

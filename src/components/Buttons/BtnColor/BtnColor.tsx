@@ -20,10 +20,11 @@ export const BtnColor: React.FC<BtnColorProps> = ({ onClick, color, isActive }) 
      */
     const handleClick = () => {
         if (onClick) {
-           
+
             onClick();
         }
     };
+    console.log('color', color);
 
     let style: CSSProperties = {
         backgroundColor: color,
