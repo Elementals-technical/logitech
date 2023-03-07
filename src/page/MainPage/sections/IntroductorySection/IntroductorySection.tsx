@@ -21,8 +21,8 @@ export const IntroductorySection = ({ executeScroll }: any) => {
             <div className={s.description_config}>
 
                 <div className={`${s.description_config_item} ${s.description_keyboard}`}>
-                    <div className={s.name}>
-                        <span>G915</span>
+                    <div className={s.name}> 
+                        <span>G915 TKL</span>
                         LIGHTSPEED
                     </div>
                     <img src={keyboard} alt="" />
@@ -38,7 +38,7 @@ export const IntroductorySection = ({ executeScroll }: any) => {
             </div>
             <div className={`${s.btn} ${s.main__scrol}`}>
                 <div className={s.main__scrol_text}>Available for customization</div>
-                <div className={s.main__scrol_icon} onClick={()=>executeScroll()}>
+                <div className={s.main__scrol_icon} onClick={() => executeScroll()}>
                     <MouseSvg />
                 </div>
             </div>

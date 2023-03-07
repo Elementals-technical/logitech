@@ -14,12 +14,7 @@ export const PlayerComponent = () => {
             <div className={s.wrapSvgRadial}>
                 <RadialBG />
             </div>
-            <div className={s.player}>
-
-                <Player minHeight="250px">
-                    <LoaderPlayerChangeAttribute />
-                </Player>
-            </div>
+        
 
         </div>
     )

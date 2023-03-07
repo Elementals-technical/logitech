@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom'
 
 const useScroll = () => {
     const elRef: any = useRef(null);
-    const executeScroll = () => elRef.current.scrollIntoView({behavior: 'smooth'});
+    const executeScroll = () => elRef.current.scrollIntoView({ behavior: 'smooth' });
 
     return [executeScroll, elRef];
 };
@@ -40,7 +40,7 @@ export const MainPage = () => {
                             Badge={<div className={s.badge}>
                                 <span>G</span>Siries
                             </div>}
-                            Title={<><span>G915</span>LIGHTSPEED</>}
+                            Title={<><span>G915 TKL</span>LIGHTSPEED</>}
                             buttonClick={<Button
                                 text='Customize keyboard'
                                 onClick={() => { navigate("/keyboard"); }}

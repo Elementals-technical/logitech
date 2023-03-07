@@ -1,6 +1,6 @@
 const textConfig = {
     keyboard: {
-        name: 'G915 LIGHTSPEED',
+        name: 'G915 TKL LIGHTSPEED',
         model: 'Wireless RGB Mechanical Gaming Keyboard',
     },
     mouse: {
