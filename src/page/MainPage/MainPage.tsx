@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 import s from './MainPage.module.scss'
 
@@ -10,9 +10,16 @@ import { IntroductorySection } from './sections/IntroductorySection/Introductory
 import { RadialBG } from '../../assets/svg/radialBG'
 import { useNavigate } from 'react-router-dom'
 
+const useScroll = () => {
+    const elRef: any = useRef(null);
+    const executeScroll = () => elRef.current.scrollIntoView({behavior: 'smooth'});
+
+    return [executeScroll, elRef];
+};
 
 export const MainPage = () => {
     const navigate = useNavigate();
+    const [executeScroll, elRef] = useScroll()
 
 
 
@@ -21,8 +28,8 @@ export const MainPage = () => {
             <div className={s.bg}>
                 <RadialBG />
             </div>
-            <IntroductorySection />
-            <section className={s.sectionConfig}>
+            <IntroductorySection executeScroll={executeScroll} />
+            <section className={s.sectionConfig} ref={elRef}>
                 <div className={s.title}>Personalize with ease</div>
                 <div className={s.description}>Start customizing your mouse and keyboard settings today for a completely personalized computing experience!</div>
 

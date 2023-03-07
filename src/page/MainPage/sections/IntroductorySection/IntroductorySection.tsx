@@ -8,7 +8,7 @@ import keyboard_1 from './../../../assets/img/keyboard_1.png'
 
 import s from './IntroductorySection.module.scss'
 import { RadialBG } from '../../../../assets/svg/radialBG'
-export const IntroductorySection = () => {
+export const IntroductorySection = ({ executeScroll }: any) => {
     return (
         <section className={s.description_box}>
 
@@ -38,7 +38,7 @@ export const IntroductorySection = () => {
             </div>
             <div className={`${s.btn} ${s.main__scrol}`}>
                 <div className={s.main__scrol_text}>Available for customization</div>
-                <div className={s.main__scrol_icon}>
+                <div className={s.main__scrol_icon} onClick={()=>executeScroll()}>
                     <MouseSvg />
                 </div>
             </div>
