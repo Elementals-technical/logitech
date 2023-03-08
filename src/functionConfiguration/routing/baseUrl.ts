@@ -13,7 +13,14 @@ export const getTypeConfig = (pathname: string) => {
 
 export const checkConfigKeyboard = (pathname: string) => {
     const typeConfig = getTypeConfig(pathname);
+  
     return typeConfig === 'keyboard'
+}
+
+export const checkConfigMouse = (pathname: string) => {
+    const typeConfig = getTypeConfig(pathname);
+ 
+    return typeConfig === 'mouse'
 }
 
 export const getModeConfig = (pathname: string) => {
@@ -21,8 +28,7 @@ export const getModeConfig = (pathname: string) => {
     return modeConfig
 }
 
-export const checkIsPageConfig = (pathname: string) => {
-    const typeConfig = getTypeConfig(pathname);
-    if (checkConfigKeyboard(pathname) || typeConfig === 'mouse') return true
+export const checkIsPageConfig = (pathname: string) => { 
+    if (checkConfigKeyboard(pathname) || checkConfigMouse(pathname)) return true
     return false
 }

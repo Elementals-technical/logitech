@@ -13,6 +13,7 @@ import { getActiveSection } from '../../../store/selectors/selectors';
 import { useLocation } from 'react-router-dom';
 import { getTypeConfig } from '../../../functionConfiguration/routing/baseUrl';
 import { setOtpeningSection } from '../../../store/actions/Settings';
+import { GroupSetting } from '../GroupSetting/GroupSetting';
 
 export const ControlFieldsKeyBoard = (): any => {
 
@@ -35,15 +36,21 @@ export const ControlFieldsKeyBoard = (): any => {
 
     const infoAttributes = getInfoAttributes()
 
-    let listAttribures = Object.values(attributes).filter((item: any) => Object.keys(infoAttributes).includes(item['name']))
+
+    let listAttribures = Object.values(attributes).filter((item: any) => Object.keys(infoAttributes).includes(item['name'])).filter((item: any) => !['Color 1', 'Color 2'].includes(item['name']))
+    let listAttributeColor = Object.values(attributes).filter((item: any) => Object.keys(infoAttributes).includes(item['name'])).filter((item: any) => ['Color 1', 'Color 2'].includes(item['name']))
 
     if (attributes && attributes['Keyboard color layout'] && attributes['Keyboard color layout']['value']) {
         const valueTypeKeyboard = attributes['Keyboard color layout']['value'];
-        if (valueTypeKeyboard === 'Single Color') {
-            listAttribures = listAttribures.filter((item: any) => item['name'] !== "Color 2")
+       
+        if (valueTypeKeyboard === 'Default') {
+            listAttributeColor = listAttributeColor.filter((item: any) => item['name'] !== "Color 2")
         }
     }
-
+    console.log('listAttribures',listAttribures);
+    console.log('listAttributeColor',listAttributeColor);
+    
+     
     // "Single Color"
     return Object.values(listAttribures).length > 0 ?
         <div className={s.wrap}>
@@ -56,14 +63,45 @@ export const ControlFieldsKeyBoard = (): any => {
                 return (
 
                     <AcordionComponent isSelected={idActiveSection === threekitName} onChange={() => handleChangeAcordion(threekitName)} title={label}>
-                        {type === 'color' && (<ListColor nameAttribute={item['name']} />)}
-                        {type === 'list' && (<ListTypeItem nameAttribute={item['name']} />)}
-                        <div className={s.wrapReset}>
+                        {type === 'color' && (<ListColor key={item['name']} nameAttribute={item['name']} />)}
+                        {type === 'list' && (<ListTypeItem key={item['name']} nameAttribute={item['name']} />)}
+                        {item['name'] !== 'Keyboard color layout' && (<div className={s.wrapReset}>
                             <ResetBtnField nameSettings={[threekitName]} />
-                        </div>
+                        </div>)}
+
                     </AcordionComponent>
                 )
             })}
+
+            <AcordionComponent isSelected={idActiveSection === 'Keyboard layout color pallet'} onChange={() => handleChangeAcordion("Keyboard layout color pallet")} title={'Keyboard layout color pallet'}>
+                <div className={s.wrapAcordion}>
+                    <div className={s.wrapColors}>
+                        {Object.values(listAttributeColor).map((item: any) => {
+                            const threekitName = getThreekitName(item)
+
+                            const label = getInfoLabelAttribute(threekitName)
+                            const type = getInfoTypeAttribute(threekitName)
+
+                            return (
+                                <>
+                                    <GroupSetting title={label}>
+                                        {type === 'color' && (<ListColor key={item['name']} nameAttribute={item['name']} />)}
+                                    </GroupSetting>
+                                </>
+
+                            )
+
+                        })}
+                    </div>
+
+                    <div className={s.wrapReset}>
+                        <ResetBtnField nameSettings={Object.values(listAttributeColor).map((item: any) => item['name'])} />
+                    </div>
+                </div>
+
+            </AcordionComponent>
+
+
         </div>
         : <></>
 

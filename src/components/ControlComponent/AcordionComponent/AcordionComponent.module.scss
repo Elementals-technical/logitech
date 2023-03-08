@@ -41,8 +41,37 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        padding: 0px 21px;
+        overflow: hidden;
+
+        & .box {
+            height: 100%;
+            overflow: auto;
+            padding-right: 10px;
+            margin-right: -10px;
+
+            &::-webkit-scrollbar {
+                width: 6px;
+                // background: yellow;
+            }
+
+            /* Track */
+            &::-webkit-scrollbar-track {
+                background: #242f38;
+                // background: red;
+                border-radius: 17px;
+            }
+
+            /* Handle */
+            &::-webkit-scrollbar-thumb {
+                background: #D2DAE2;
+                border-radius: 17px;
+            }
+        }
 
         &.isOpen {
+            padding: 12px 21px;
+
             max-height: 100%;
             height: auto;
 

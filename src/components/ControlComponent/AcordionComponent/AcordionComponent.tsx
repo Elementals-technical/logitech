@@ -29,31 +29,27 @@ export const AcordionComponent: React.FC<AccordionProps> = ({ title, children, i
 
     const getHeight = () => {
         if (contentRef && contentRef.current) {
-             
+
             return `${contentRef.current.scrollHeight}px`;
         }
         return '0px';
     };
     const getMaxHeight = () => {
-        if (contentRef && contentRef.current && contentRef.current.parentNode && contentRef.current.parentNode.parentElement) {
+        debugger
+        if (contentRef && contentRef.current && contentRef.current.parentElement && contentRef.current.parentElement.parentElement) {
 
-            const allHeigth = contentRef.current.parentNode.parentElement.scrollHeight;
+            const heightWrapAcordion = contentRef.current.parentElement.parentElement.clientHeight;
+            const conuterAcordion = contentRef.current.parentElement.parentElement.childNodes;
 
-            const childElement = contentRef.current.parentNode.childNodes;
+            const occupiedAccordionHeight = conuterAcordion.length * (48 + 8)
 
-            const heigthotherAcordion = (childElement.length) * 48 + 8 + 8 + 8 + 8 + 8- 24
-           
-            return `${allHeigth - heigthotherAcordion}px`;
+            return `${heightWrapAcordion - occupiedAccordionHeight}px`;
         }
         return '0px';
     };
 
     const contentStyle = {
-        // height: isSelected ? getHeight() : '0px',
         maxHeight: isSelected ? getMaxHeight() : '0px',
-        padding: isSelected ? '12px 21px' : '0px 21px',
-        overflow: 'scroll',
-        // transition: 'height 0.3s ease',
     };
     let classAcordionContent = `${s.accordionContent}`
     if (isSelected) classAcordionContent += ` ${s.isOpen}`
@@ -68,7 +64,7 @@ export const AcordionComponent: React.FC<AccordionProps> = ({ title, children, i
                 <div className={s.box}>
                     {children}
                 </div>
-              
+
             </div>
         </div>
     );

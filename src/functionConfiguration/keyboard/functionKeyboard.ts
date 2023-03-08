@@ -55,7 +55,7 @@ export const getConfigurationDefaultValue = (): any => {
 
     let mouseConfig = {}
     mouse.forEach((nameAttr: string) => {
-        if (defaultConfiguration[nameAttr]!==undefined) {
+        if (defaultConfiguration[nameAttr] !== undefined) {
             mouseConfig = {
                 ...mouseConfig,
                 [nameAttr]: defaultConfiguration[nameAttr]
@@ -77,4 +77,24 @@ export const getConfigurationDefaultValue = (): any => {
 
 
 
+}
+
+export const checkSelectedThreekitKeyboard = (attributes: any) => {
+    const attributeKyeboard: any = attributes['Customize keyboard'];
+    const valueAttributeKyeboard: any = attributeKyeboard['value'];
+
+    const assetId = valueAttributeKyeboard['assetId'];
+    const valuesAttribute: any = attributeKyeboard['values'];
+
+    const keyboardItem = valuesAttribute.filter((item: any) => item['name'] === "Keyboard")
+    console.log('keyboardItem', keyboardItem[0]['assetId']);
+    console.log('assetId', assetId);
+
+    if (keyboardItem.length > 0 && keyboardItem[0]['assetId']) {
+        let valueKeyboardItem = keyboardItem[0]['assetId'];
+        console.log('valueKeyboardItem', valueKeyboardItem);
+
+        if (valueKeyboardItem == assetId) return true
+    }
+    return false
 }

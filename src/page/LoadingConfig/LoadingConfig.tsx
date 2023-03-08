@@ -4,13 +4,13 @@ import { RadialBG } from '../../assets/svg/radialBG'
 import { SninerLoader } from '../../components/loaders/SninerLoader/SninerLoader'
 import light from './../../assets/img/light.png'
 import { LogoLogitech } from './../../assets/svg/logoLogitech'
-import s from './LoadingConfig.module.scss' 
+import s from './LoadingConfig.module.scss'
 import { getCheckLoadThreekitPlayer } from '../../store/selectors/selectors'
 import { useStoreSelector } from '../..'
 
 export const LoadingConfig = () => {
     const hasLoaded = useStoreSelector(getCheckLoadThreekitPlayer);
-
+    // return <></>
     return !hasLoaded ? (
         <div className={s.wrapPage}>
             <div className={s.bg}>

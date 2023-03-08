@@ -17,16 +17,20 @@ export const objectField: listFields = {
         label: "Backlight color",
         type: "color",
     },
+    "Bottom case": {
+        label: "Bottom case",
+        type: "color",
+    },
     "Keyboard color layout": {
         label: "Keyboard color layout",
         type: "list",
     },
     "Color 1": {
-        label: "Color pallet",
+        label: "Primary keys color",
         type: "color",
     },
     "Color 2": {
-        label: "Color pallet 2",
+        label: "Secondary keys color",
         type: "color",
 
     },
@@ -52,5 +56,5 @@ export const objectFieldMouse: listFields = {
         label: "Text color",
         type: "color",
     },
-   
+
 }

@@ -3,8 +3,8 @@ import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { useStoreDispatch } from '../..';
-import { getConfigurationDefaultValue } from '../../functionConfiguration/keyboard/functionKeyboard';
-import { getTypeConfig } from '../../functionConfiguration/routing/baseUrl';
+import { checkSelectedThreekitKeyboard, getConfigurationDefaultValue } from '../../functionConfiguration/keyboard/functionKeyboard';
+import { checkConfigKeyboard, getTypeConfig } from '../../functionConfiguration/routing/baseUrl';
 import { getObjectActive3DConfig } from '../../functionConfiguration/routing/threekitRouting';
 import { setDefaultConfigurations, setLoadingPlayer, setTypeConfig } from '../../store/actions/Settings';
 
@@ -16,9 +16,11 @@ export const SetDefafaultValue = () => {
     const hasLoaded = useThreekitInitStatus();
 
     const dispatch = useStoreDispatch();
+    console.log('SetDefafaultValue', hasLoaded);
 
     useEffect(() => {
         if (hasLoaded) {
+
             //@ts-ignore
             if (!window['playerThreekit']) {
                 //@ts-ignore
@@ -29,21 +31,11 @@ export const SetDefafaultValue = () => {
 
             if (typeConfig) {
 
-                dispatch(setTypeConfig(typeConfig))
 
-
-                //@ts-ignore
                 setTimeout(() => {
-
-                    const objValue = getObjectActive3DConfig(typeConfig)
-
-                    if (setConfiguration) setConfiguration(objValue)
-            
-                    setTimeout(() => {
-                        dispatch(setDefaultConfigurations(getConfigurationDefaultValue()))
-                        dispatch(setLoadingPlayer(true))
-                    }, 800)
-                }, 1000)
+                    dispatch(setDefaultConfigurations(getConfigurationDefaultValue()))
+                    dispatch(setLoadingPlayer(true))
+                }, 1200)
 
             }
         }
@@ -54,8 +46,23 @@ export const SetDefafaultValue = () => {
         //@ts-ignore
         if (typeConfig && setConfiguration && window['playerThreekit']) {
 
-            const objValue = getObjectActive3DConfig(typeConfig)
-            if (setConfiguration) setConfiguration(objValue)
+
+            if (checkSelectedThreekitKeyboard(attributes)) {
+
+                setTimeout(() => {
+                    dispatch(setDefaultConfigurations(getConfigurationDefaultValue()))
+                    dispatch(setLoadingPlayer(true))
+                }, 900)
+            } else {
+                const objValue = getObjectActive3DConfig(typeConfig)
+                if (setConfiguration) setConfiguration(objValue)
+
+                setTimeout(() => {
+                    dispatch(setDefaultConfigurations(getConfigurationDefaultValue()))
+                    dispatch(setLoadingPlayer(true))
+                }, 900)
+            }
+
 
         }
     }, [pathname]);

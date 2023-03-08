@@ -1,5 +1,5 @@
 import React from 'react'
-import { MouseSvg } from '../../../../assets/svg/mouseSvg'
+import { MouseSvg } from '../../../../assets/svg/mouseSvgScroll'
 
 
 import mouse from './../../../../assets/img/mouse.png'

@@ -24,15 +24,17 @@ export const BtnColor: React.FC<BtnColorProps> = ({ onClick, color, isActive }) 
             onClick();
         }
     };
-   
+
     let style: CSSProperties = {
-        backgroundColor: color,
+        background: color,
     };
+ 
     if (isActive) style = {
         ...style,
         borderColor: '#fff'
     }
-
+  
+   
     return (
         <div className={s.btnColor} style={style} onClick={handleClick}></div>
     );

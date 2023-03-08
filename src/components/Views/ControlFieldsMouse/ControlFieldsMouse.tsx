@@ -34,7 +34,7 @@ export const ControlFieldsMouse = (): any => {
 
     let [attributes]: any = useConfigurator();
     if (!attributes && !attributes['Customize']) attributes = {}
-   
+
     const infoAttributesMouse = getInfoAttributesMouse()
 
     let listAttribures = Object.values(attributes).filter((item: any) => Object.keys(infoAttributesMouse).includes(item['name']))
@@ -56,9 +56,9 @@ export const ControlFieldsMouse = (): any => {
                 return (
 
                     <AcordionComponent isSelected={idActiveSection === threekitName} onChange={() => handleChangeAcordion(threekitName)} title={label}>
-                        {type === 'color' && (<ListColor nameAttribute={item['name']} />)}
-                        {type === 'list' && (<ListTypeItem nameAttribute={item['name']} />)}
-                        {type === 'input' && (<Input nameAttribute={item['name']} />)}
+                        {type === 'color' && (<ListColor key={item['name']} nameAttribute={item['name']} />)}
+                        {type === 'list' && (<ListTypeItem key={`body_${item['name']}`} nameAttribute={item['name']} />)}
+                        {type === 'input' && (<Input key={item['name']} nameAttribute={item['name']} />)}
                         <div className={s.wrapReset}>
                             <ResetBtnField nameSettings={['Body colors']} />
                         </div>
@@ -68,27 +68,30 @@ export const ControlFieldsMouse = (): any => {
             })}
             <AcordionComponent isSelected={idActiveSection === 'Add personalization'} onChange={() => handleChangeAcordion("Add personalization")} title={'Add personalization'}>
                 <div className={s.wrapAcordion}>
-                    {Object.values(allAttribures).map((item: any) => {
-                        const threekitName = getThreekitName(item)
+                    <div className={s.wrapBox}>
+                        {Object.values(allAttribures).map((item: any) => {
+                            const threekitName = getThreekitName(item)
 
-                        const label = getInfoLabelAttributeMouse(threekitName)
-                        const type = getInfoTypeAttributeMouse(threekitName)
+                            const label = getInfoLabelAttributeMouse(threekitName)
+                            const type = getInfoTypeAttributeMouse(threekitName)
 
 
-                        return (
-                            <>
-                                <GroupSetting title={label}>
-                                    {type === 'color' && (<ListColor nameAttribute={item['name']} />)}
-                                    {type === 'list' && (<ListTypeItem nameAttribute={item['name']} />)}
-                                    {type === 'input' && (<Input nameAttribute={item['name']} />)}
+                            return (
+                                <>
+                                    <GroupSetting title={label}>
+                                        {type === 'color' && (<ListColor key={item['name']} nameAttribute={item['name']} />)}
+                                        {type === 'list' && (<ListTypeItem key={`color_${item['name']}`} nameAttribute={item['name']} />)}
+                                        {type === 'input' && (<Input key={item['name']} nameAttribute={item['name']} />)}
 
-                                </GroupSetting>
+                                    </GroupSetting>
 
-                            </>
+                                </>
 
-                        )
+                            )
 
-                    })}
+                        })}
+                    </div>
+
                     <div className={s.wrapReset}>
                         <ResetBtnField nameSettings={Object.values(allAttribures).map((item: any) => item['name'])} />
                     </div>

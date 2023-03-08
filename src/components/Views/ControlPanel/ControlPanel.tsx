@@ -2,7 +2,7 @@ import React from 'react'
 import { useLocation } from 'react-router-dom'
 import { ResetItem } from '../../../assets/svg/ResetItem'
 import { ShopBtn } from '../../../assets/svg/ShopBtn'
-import { checkConfigKeyboard, getTypeConfig } from '../../../functionConfiguration/routing/baseUrl'
+import { checkConfigKeyboard, checkConfigMouse, getTypeConfig } from '../../../functionConfiguration/routing/baseUrl'
 import { Button } from '../../Buttons/Button/Button'
 import { ResetAll } from '../../Buttons/ResetAll/ResetAll'
 import { ControlFieldsKeyBoard } from '../ControlFieldsKeyBoard/ControlFieldsKeyBoard'
@@ -12,8 +12,7 @@ import s from './ControlPanel.module.scss'
 
 export const ControlPanel = () => {
     const { pathname } = useLocation()
-    const typeConfig = getTypeConfig(pathname)
-
+  
 
 
     return (
@@ -24,8 +23,11 @@ export const ControlPanel = () => {
             </div>
             <div className={s.mainPanel}>
                 <div className={s.wrapField}>
-                    {checkConfigKeyboard(pathname) && <ControlFieldsKeyBoard />}
-                    {typeConfig === 'mouse' && <ControlFieldsMouse />}
+                    <div className={s.boxOverflow}>
+
+                        {checkConfigKeyboard(pathname) && <ControlFieldsKeyBoard key={'ControlFieldsKeyBoard1'} />}
+                        {checkConfigMouse(pathname) && <ControlFieldsMouse key={'ControlFieldsMouse2'} />}
+                    </div>
 
                 </div>
                 <div className={s.footerControl}>

@@ -12,9 +12,9 @@ export const ListTypeItem = ({ nameAttribute }: any) => {
     let values = getThreekitValues(attribute)
 
 
-    if (nameAttribute === "Keyboard color layout") {
-        values = values.filter((item: any) => item['value'] !== 'Single Color')
-    }
+    // if (nameAttribute === "Keyboard color layout") {
+    //     values = values.filter((item: any) => item['value'] !== 'Single Color')
+    // }
 
  
     return (

@@ -20,6 +20,7 @@ export const Config3DMode = () => {
 
 
 
+console.log('Config3DMode');
 
     return (
 
