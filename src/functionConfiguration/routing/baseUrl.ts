@@ -7,14 +7,15 @@ const getInfoPathConfig = (pathname: string) => {
 }
 export const getTypeConfig = (pathname: string) => {
     const { typeConfig } = getInfoPathConfig(pathname);
+ 
     if (!typeConfig) {
+       
         if (checkMode3DConfigUrl(pathname)) return 'keyboard'
-
+         
         if (checkModeDeskConfigUrl(pathname)) return ''
 
-    }
-
-    if (!typeConfig) return ''
+    } 
+    if (!typeConfig) return '' 
     return typeConfig
 }
 

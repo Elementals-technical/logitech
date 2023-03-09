@@ -46,6 +46,18 @@ export const SetDefafaultValue = () => {
 
                 if (getTypeModeConfigDesk(modeConfigStore)) {
                     setDeskDefaultValue(setConfiguration)
+                    if (setConfiguration) {
+                        if (checkConfigMouse(pathname)) {
+                            setConfiguration({ ["Camera"]: "Camera_Mous" })
+
+                        } else if (checkConfigKeyboard(pathname)) {
+
+                            setConfiguration({ ["Camera"]: "Camera_Keyboard" })
+                        } else {
+                            setConfiguration({ ["Camera"]: "CameraMain" })
+                        }
+                    }
+
                 } else if (getTypeModeConfig3D(modeConfigStore)) {
                     deleteNode()
                     if (checkConfigMouse(pathname)) {
@@ -62,6 +74,19 @@ export const SetDefafaultValue = () => {
 
             } else if (getTypeModeConfigDesk(modeConfigStore)) {
 
+                if (setConfiguration) {
+                    if (checkConfigMouse(pathname)) {
+                        setConfiguration({ ["Camera"]: "Camera_Mous" })
+
+                    } else if (checkConfigKeyboard(pathname)) {
+
+                        setConfiguration({ ["Camera"]: "Camera_Keyboard" })
+                    } else {
+                        setConfiguration({ ["Camera"]: "CameraMain" })
+                    }
+                }
+
+
                 setDeskDefaultValue(setConfiguration)
                 setTimeout(() => {
                     dispatch(setDefaultConfigurations(getConfigurationDefaultValue()))
@@ -76,6 +101,10 @@ export const SetDefafaultValue = () => {
 
 
     useEffect(() => {
+
+        const typeConfig = getTypeConfig(pathname)
+
+
         //@ts-ignore
         if (typeConfig && setConfiguration && window['playerThreekit']) {
             dispatch(setDefaultConfigurations(getConfigurationDefaultValue()))
@@ -86,6 +115,17 @@ export const SetDefafaultValue = () => {
 
             if (getTypeModeConfigDesk(modeConfigStore)) {
                 setDeskDefaultValue(setConfiguration)
+                console.log('test1', pathname);
+
+                if (checkConfigMouse(pathname)) {
+                    setConfiguration({ ["Camera"]: "Camera_Mous" })
+                     
+                } else if (checkConfigKeyboard(pathname)) {
+                    
+                    setConfiguration({ ["Camera"]: "Camera_Keyboard" })
+                }  
+
+
             } else if (getTypeModeConfig3D(modeConfigStore)) {
                 deleteNode()
                 const objValue = getObjectActive3DConfig(typeConfig)
@@ -98,6 +138,12 @@ export const SetDefafaultValue = () => {
             }, 1000)
 
 
+        } else if (typeConfig === '' && setConfiguration) {
+            if (getTypeModeConfigDesk(modeConfigStore)) {
+
+                setConfiguration({ ["Camera"]: "CameraMain" })
+ 
+            }
         }
     }, [pathname]);
 
@@ -107,6 +153,17 @@ export const SetDefafaultValue = () => {
                 let modeConfigStore = getModeConfigRelativeUrl(pathname);
                 if (getTypeModeConfigDesk(modeConfigStore)) {
                     setDeskDefaultValue(setConfiguration)
+                    if (setConfiguration) {
+                        if (checkConfigMouse(pathname)) {
+                            setConfiguration({ ["Camera"]: "Camera_Mous" })
+
+                        } else if (checkConfigKeyboard(pathname)) {
+
+                            setConfiguration({ ["Camera"]: "Camera_Keyboard" })
+                        } else {
+                            setConfiguration({ ["Camera"]: "CameraMain" })
+                        }
+                    }
                 } else if (getTypeModeConfig3D(modeConfigStore)) {
                     deleteNode()
                     const objValue = getObjectActive3DConfig(typeConfig)
