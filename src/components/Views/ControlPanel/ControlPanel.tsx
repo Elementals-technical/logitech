@@ -13,6 +13,8 @@ import { ResetAll } from '../../Buttons/ResetAll/ResetAll'
 import { ControlFieldsKeyBoard } from '../ControlFieldsKeyBoard/ControlFieldsKeyBoard'
 import { ControlFieldsMouse } from '../ControlFieldsMouse/ControlFieldsMouse'
 
+import { v4 as uuidv4 } from 'uuid';
+
 import s from './ControlPanel.module.scss'
 
 export const ControlPanel = () => {
@@ -42,8 +44,8 @@ export const ControlPanel = () => {
                 <div className={s.wrapField}>
                     <div className={s.boxOverflow}>
 
-                        {checkConfigKeyboard(pathname) && <ControlFieldsKeyBoard key={'ControlFieldsKeyBoard1'} />}
-                        {checkConfigMouse(pathname) && <ControlFieldsMouse key={'ControlFieldsMouse2'} />}
+                        {checkConfigKeyboard(pathname) && <ControlFieldsKeyBoard key={uuidv4()} />}
+                        {checkConfigMouse(pathname) && <ControlFieldsMouse key={uuidv4()} />}
                     </div>
 
                 </div>

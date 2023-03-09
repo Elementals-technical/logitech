@@ -5,18 +5,18 @@ import { BtnTypeLoyaut } from '../../Buttons/BtnTypeLoyaut/BtnTypeLoyaut';
 
 import s from './ListTypeItem.module.scss'
 
-
+import { v4 as uuidv4 } from 'uuid';
 
 export const ListTypeItem = ({ nameAttribute }: any) => {
     const [attribute, setAttribute]: any = useAttribute(nameAttribute);
     let values = getThreekitValues(attribute)
 
 
-    // if (nameAttribute === "Keyboard color layout") {
-    //     values = values.filter((item: any) => item['value'] !== 'Single Color')
-    // }
+    if (nameAttribute === "Keyboard color layout") {
+        values = values.filter((item: any) => item['value'] !== 'Single Color')
+    }
 
- 
+
     return (
         <div className={s.mainColor}>
             <div className={s.wrapTypeLoyaut}>
@@ -31,7 +31,7 @@ export const ListTypeItem = ({ nameAttribute }: any) => {
 
                     if (nameAttribute === "Keyboard color layout" && isSeleceted) value = 'Single Color'
 
-                    return <BtnTypeLoyaut isActive={isSeleceted} name={item['label']} onClick={() => { setAttribute(value) }} />
+                    return <BtnTypeLoyaut key={uuidv4()} isActive={isSeleceted} name={item['label']} onClick={() => { setAttribute(value) }} />
                 })}
             </div>
 

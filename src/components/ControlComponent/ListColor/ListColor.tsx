@@ -5,6 +5,7 @@ import { getThreekitValues } from '../../../functionConfiguration/threekitFunc/b
 import { BtnColor } from '../../Buttons/BtnColor/BtnColor';
 import s from './ListColor.module.scss'
 
+import { v4 as uuidv4 } from 'uuid';
 
 
 export const ListColor = ({ nameAttribute }: any) => {
@@ -20,7 +21,7 @@ export const ListColor = ({ nameAttribute }: any) => {
                 {values.map((value: any) => {
                     const colorRGB = value['metadata']['colorRGB'];
 
-                    return <BtnColor isActive={value.assetId === attribute.value.assetId} color={colorRGB} onClick={() => setAttribute(value['assetId'])} />
+                    return <BtnColor key={uuidv4()} isActive={value.assetId === attribute.value.assetId} color={colorRGB} onClick={() => setAttribute(value['assetId'])} />
                 })}
             </div>
 
