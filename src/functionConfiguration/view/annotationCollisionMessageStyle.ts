@@ -53,6 +53,8 @@ export const onAnnotationChange = (navigate: any) => (
 }
 
 const setAnnotation = (navigate: any) => (annotation: any, el: any = document.createElement('div')) => {
+
+
     el.className = "blob";
     el.id = annotation.id;
     el.style.cssText = el.style.cssText + `${getStyleAnnotation(annotation)}`;
@@ -70,7 +72,7 @@ const setAnnotation = (navigate: any) => (annotation: any, el: any = document.cr
         if ("annotation_mouse" === annotation['text']) {
             navigate(`/desk/mouse`)
         }
-      
+
     }
 
     return el;
@@ -79,11 +81,11 @@ const setAnnotation = (navigate: any) => (annotation: any, el: any = document.cr
 
 export const deleteNode = async () => {
 
-    let pointsHTMLs: any = await document.getElementsByClassName('blob');
+    // let pointsHTMLs: any = await document.getElementsByClassName('blob');
 
-    const elementsArray = await Array.from(pointsHTMLs);
+    // const elementsArray = await Array.from(pointsHTMLs);
 
-    // видаляємо кожен елемент з масиву
-    await elementsArray.forEach((element: any) => element.remove());
+    // // видаляємо кожен елемент з масиву
+    // await elementsArray.forEach((element: any) => element.remove());
 
 };
