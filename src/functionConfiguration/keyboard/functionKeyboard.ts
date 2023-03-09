@@ -1,4 +1,4 @@
-import { getThreekitFullConfig } from "../threekitFunc/baseFuncThreekit"
+import { getThreekitFullConfig, getThreekitValue, getThreekitValues } from "../threekitFunc/baseFuncThreekit"
 import { listFields, objectField, objectFieldMouse } from "./listFields"
 
 export const getInfoAttributes = (): listFields => {
@@ -32,7 +32,30 @@ export const getInfoTypeAttributeMouse = (name: string) => {
     return attributes['type']
 }
 
+export const getInfoValeuNameAttribute = (attribute: any) => {
+    console.log('attribute', attribute);
 
+    const valueAttribute = getThreekitValue(attribute)
+    if (!valueAttribute) return undefined
+    const values = getThreekitValues(attribute)
+
+
+    console.log('value', valueAttribute);
+
+    let valueLabel = valueAttribute;
+    if (valueAttribute && valueAttribute['assetId']) {
+        let value = values.filter((item: any) => item['assetId'] === valueAttribute['assetId'])
+        console.log('value', value);
+
+        if (value.length > 0) {
+            valueLabel = value[0]['label']
+        }
+    }
+
+    console.log('valueLabel', valueLabel);
+
+    return valueLabel
+}
 
 
 export const getNameConfigurationValue = (): any => {

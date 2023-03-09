@@ -4,7 +4,7 @@ import s from './ControlFieldsMouse.module.scss'
 import { useConfigurator, useNestedConfigurator } from '@threekit-tools/treble/dist';
 import { AcordionComponent } from '../../ControlComponent/AcordionComponent/AcordionComponent';
 import { ResetBtnField } from '../../Buttons/ResetBtnField/ResetBtnField';
-import { getInfoAttributes, getInfoAttributesMouse, getInfoLabelAttribute, getInfoLabelAttributeMouse, getInfoTypeAttribute, getInfoTypeAttributeMouse } from '../../../functionConfiguration/keyboard/functionKeyboard';
+import { getInfoAttributes, getInfoAttributesMouse, getInfoLabelAttribute, getInfoLabelAttributeMouse, getInfoTypeAttribute, getInfoTypeAttributeMouse, getInfoValeuNameAttribute } from '../../../functionConfiguration/keyboard/functionKeyboard';
 import { getThreekitName } from '../../../functionConfiguration/threekitFunc/baseFuncThreekit';
 import { ListColor } from '../../ControlComponent/ListColor/ListColor';
 import { ListTypeItem } from '../../ControlComponent/ListTypeItem/ListTypeItem';
@@ -42,7 +42,7 @@ export const ControlFieldsMouse = (): any => {
     let allAttribures = listAttribures.filter((item: any) => !['Body colors'].includes(item['name']))
 
 
- 
+
     // "Single Color"
     return Object.values(listAttribures).length > 0 ?
         <div className={s.wrap}>
@@ -51,11 +51,13 @@ export const ControlFieldsMouse = (): any => {
 
                 const label = getInfoLabelAttributeMouse(threekitName)
                 const type = getInfoTypeAttributeMouse(threekitName)
+                const valueName = getInfoValeuNameAttribute(item)
+                console.log('valueName', valueName);
 
-
+                debugger
                 return (
 
-                    <AcordionComponent isSelected={idActiveSection === threekitName} onChange={() => handleChangeAcordion(threekitName)} title={label}>
+                    <AcordionComponent isSelected={idActiveSection === threekitName} onChange={() => handleChangeAcordion(threekitName)} title={label} value={valueName}>
                         {type === 'color' && (<ListColor key={item['name']} nameAttribute={item['name']} />)}
                         {type === 'list' && (<ListTypeItem key={`body_${item['name']}`} nameAttribute={item['name']} />)}
                         {type === 'input' && (<Input key={item['name']} nameAttribute={item['name']} />)}

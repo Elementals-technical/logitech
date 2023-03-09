@@ -8,13 +8,14 @@ import { ResetBtnField } from '../../Buttons/ResetBtnField/ResetBtnField';
 import s from './AcordionComponent.module.scss';
 
 interface AccordionProps {
+    value?: string;
     title: string;
     children: React.ReactNode;
     isSelected: boolean;
     onChange: () => void;
 }
 
-export const AcordionComponent: React.FC<AccordionProps> = ({ title, children, isSelected, onChange }) => {
+export const AcordionComponent: React.FC<AccordionProps> = ({ title, children, value, isSelected, onChange }) => {
     const { pathname } = useLocation()
     useEffect(() => {
 
@@ -35,13 +36,13 @@ export const AcordionComponent: React.FC<AccordionProps> = ({ title, children, i
         return '0px';
     };
     const getMaxHeight = () => {
-         
+
         if (contentRef && contentRef.current && contentRef.current.parentElement && contentRef.current.parentElement.parentElement) {
 
             const heightWrapAcordion = contentRef.current.parentElement.parentElement.clientHeight;
             const conuterAcordion = contentRef.current.parentElement.parentElement.childNodes;
 
-            const occupiedAccordionHeight = conuterAcordion.length * (48 + 8)
+            const occupiedAccordionHeight = conuterAcordion.length * (55 + 8)
 
             return `${heightWrapAcordion - occupiedAccordionHeight}px`;
         }
@@ -57,7 +58,12 @@ export const AcordionComponent: React.FC<AccordionProps> = ({ title, children, i
     return (
         <div className={s.accordion}>
             <div className={s.accordionHeader} onClick={handleAccordionClick}>
-                <div className={s.name}>{title}</div>
+                <div className={s.infoHeader}>
+                    <div className={s.name}>{title}</div>
+                    {value && (<div className={s.value}>{value}</div>)}
+
+
+                </div>
                 <div className={s.icon}>{isSelected ? <IconMinus /> : <IconPlus />}</div>
             </div>
             <div className={classAcordionContent} style={contentStyle} ref={contentRef}>

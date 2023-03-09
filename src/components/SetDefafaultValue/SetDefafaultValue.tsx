@@ -37,7 +37,7 @@ export const SetDefafaultValue = () => {
             }
 
             if (typeConfig) {
-                debugger
+                 
                 if (getTypeModeConfigDesk(modeConfigStore)) {
                     setDeskDefaultValue(setConfiguration)
                 } else if (getTypeModeConfig3D(modeConfigStore)) {
@@ -55,7 +55,7 @@ export const SetDefafaultValue = () => {
                 }, 1200)
 
             } else if (getTypeModeConfigDesk(modeConfigStore)) {
-                debugger
+                 
                 setDeskDefaultValue(setConfiguration)
                 setTimeout(() => {
                     dispatch(setDefaultConfigurations(getConfigurationDefaultValue()))

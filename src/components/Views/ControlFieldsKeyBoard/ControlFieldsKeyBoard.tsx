@@ -4,7 +4,7 @@ import s from './ControlFieldsKeyBoard.module.scss'
 import { useConfigurator, useNestedConfigurator } from '@threekit-tools/treble/dist';
 import { AcordionComponent } from '../../ControlComponent/AcordionComponent/AcordionComponent';
 import { ResetBtnField } from '../../Buttons/ResetBtnField/ResetBtnField';
-import { getInfoAttributes, getInfoLabelAttribute, getInfoTypeAttribute } from '../../../functionConfiguration/keyboard/functionKeyboard';
+import { getInfoAttributes, getInfoLabelAttribute, getInfoTypeAttribute, getInfoValeuNameAttribute } from '../../../functionConfiguration/keyboard/functionKeyboard';
 import { getThreekitName } from '../../../functionConfiguration/threekitFunc/baseFuncThreekit';
 import { ListColor } from '../../ControlComponent/ListColor/ListColor';
 import { ListTypeItem } from '../../ControlComponent/ListTypeItem/ListTypeItem';
@@ -42,15 +42,15 @@ export const ControlFieldsKeyBoard = (): any => {
 
     if (attributes && attributes['Keyboard color layout'] && attributes['Keyboard color layout']['value']) {
         const valueTypeKeyboard = attributes['Keyboard color layout']['value'];
-       
+
         if (valueTypeKeyboard === 'Default') {
             listAttributeColor = listAttributeColor.filter((item: any) => item['name'] !== "Color 2")
         }
     }
-    console.log('listAttribures',listAttribures);
-    console.log('listAttributeColor',listAttributeColor);
-    
-     
+    console.log('listAttribures', listAttribures);
+    console.log('listAttributeColor', listAttributeColor);
+
+
     // "Single Color"
     return Object.values(listAttribures).length > 0 ?
         <div className={s.wrap}>
@@ -59,10 +59,11 @@ export const ControlFieldsKeyBoard = (): any => {
 
                 const label = getInfoLabelAttribute(threekitName)
                 const type = getInfoTypeAttribute(threekitName)
+                const valueName = getInfoValeuNameAttribute(item)
 
                 return (
 
-                    <AcordionComponent isSelected={idActiveSection === threekitName} onChange={() => handleChangeAcordion(threekitName)} title={label}>
+                    <AcordionComponent isSelected={idActiveSection === threekitName} onChange={() => handleChangeAcordion(threekitName)} title={label} value={valueName}>
                         {type === 'color' && (<ListColor key={item['name']} nameAttribute={item['name']} />)}
                         {type === 'list' && (<ListTypeItem key={item['name']} nameAttribute={item['name']} />)}
                         {item['name'] !== 'Keyboard color layout' && (<div className={s.wrapReset}>
