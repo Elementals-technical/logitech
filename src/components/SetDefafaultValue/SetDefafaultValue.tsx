@@ -78,7 +78,7 @@ export const SetDefafaultValue = () => {
                     }
 
                 } else if (getTypeModeConfig3D(modeConfigStore)) {
-                    
+
                     if (checkConfigMouse(pathname)) {
 
                         const objValue = getObjectActive3DConfig(typeConfig)
@@ -92,6 +92,16 @@ export const SetDefafaultValue = () => {
                         }
                     }
 
+                    setTimeout(() => {
+                        const elements = document.getElementsByClassName('blob');
+
+                        // перетворюємо HTML колекцію в масив
+                        const elementsArray = Array.from(elements);
+                        //@ts-ignore
+                        elementsArray.forEach(element => element.style.display = 'none');
+
+
+                    }, 1200)
 
 
 
@@ -155,7 +165,7 @@ export const SetDefafaultValue = () => {
 
 
             } else if (getTypeModeConfig3D(modeConfigStore)) {
-            
+
                 const objValue = getObjectActive3DConfig(typeConfig)
                 if (setConfiguration) setConfiguration(objValue)
 
@@ -168,6 +178,17 @@ export const SetDefafaultValue = () => {
                         setConfiguration({ ["Camera"]: "Camera_Keyboard_3d" })
                     }
                 }
+
+                setTimeout(() => {
+                    const elements = document.getElementsByClassName('blob');
+
+                    // перетворюємо HTML колекцію в масив
+                    const elementsArray = Array.from(elements);
+                    //@ts-ignore
+                    elementsArray.forEach(element => element.style.display = 'none');
+
+
+                }, 1200)
 
 
             }
@@ -205,7 +226,7 @@ export const SetDefafaultValue = () => {
                         }
                     }
                 } else if (getTypeModeConfig3D(modeConfigStore)) {
-                   
+
                     const objValue = getObjectActive3DConfig(typeConfig)
                     if (setConfiguration) setConfiguration(objValue)
                     if (checkConfigMouse(pathname)) {
@@ -217,6 +238,16 @@ export const SetDefafaultValue = () => {
                             setConfiguration({ ["Camera"]: "Camera_Keyboard_3d" })
                         }
                     }
+                    setTimeout(() => {
+                        const elements = document.getElementsByClassName('blob');
+
+                        // перетворюємо HTML колекцію в масив
+                        const elementsArray = Array.from(elements);
+                        //@ts-ignore
+                        elementsArray.forEach(element => element.style.display = 'none');
+
+
+                    }, 1200)
                 }
 
                 setTimeout(() => {
