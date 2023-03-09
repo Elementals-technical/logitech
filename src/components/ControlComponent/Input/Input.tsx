@@ -8,18 +8,17 @@ interface Props {
 
 }
 
-export const Input = ({ delay = 200, nameAttribute }: Props) => {
-
-    const [attribute, setAttribute]: any = useAttribute(nameAttribute);
-console.log('nameAttribute',nameAttribute);
-
-   
+export const InputField = ({ delay = 200, setAttribute, attribute }: any) => {
 
     const [value, setValue] = useState<string>(attribute['value']);
 
     useEffect(() => {
+        console.log('value', value);
+
         const timeoutId = setTimeout(() => {
             setAttribute(value);
+            // //@ts-ignore
+            // window.playerThreekit.configurator.setConfiguration({ [nameAttribute]: value })
         }, delay);
 
         return () => clearTimeout(timeoutId);
@@ -31,5 +30,15 @@ console.log('nameAttribute',nameAttribute);
 
     return (
         <input className={s.textInput} type="text" defaultValue={value} value={value} placeholder='Enter your text' onChange={handleChange} />
+    );
+}
+export const Input = ({ delay = 200, nameAttribute }: Props) => {
+
+    const [attribute, setAttribute]: any = useAttribute(nameAttribute);
+    console.log('nameAttribute', nameAttribute);
+
+
+    return (
+        <InputField attribute={attribute} setAttribute={setAttribute} />
     );
 }
