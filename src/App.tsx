@@ -13,11 +13,11 @@ function App() {
   // const modeConfig = getModeConfigUrl(pathname)
   const saveConfig = {
     '3d': {
-      keyboard: 'KVewv9bCR',
-      mouse: '-E3_37UR5'
+      keyboard: 'x-xKWlWAm',
+      mouse: 'E-rokDhL_'
     },
     'desk': {
-      all: 'IG4IHEuL-'
+      all: 'VBvN1-Bda'
     }
   }
   let configurationId = saveConfig['3d']['keyboard']
