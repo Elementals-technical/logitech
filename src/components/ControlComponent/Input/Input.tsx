@@ -12,13 +12,10 @@ export const InputField = ({ delay = 200, setAttribute, attribute }: any) => {
 
     const [value, setValue] = useState<string>(attribute['value']);
 
-    useEffect(() => {
-        console.log('value', value);
-
+    useEffect(() => { 
         const timeoutId = setTimeout(() => {
             setAttribute(value);
-            // //@ts-ignore
-            // window.playerThreekit.configurator.setConfiguration({ [nameAttribute]: value })
+
         }, delay);
 
         return () => clearTimeout(timeoutId);
@@ -35,7 +32,6 @@ export const InputField = ({ delay = 200, setAttribute, attribute }: any) => {
 export const Input = ({ delay = 200, nameAttribute }: Props) => {
 
     const [attribute, setAttribute]: any = useAttribute(nameAttribute);
-    console.log('nameAttribute', nameAttribute);
 
 
     return (

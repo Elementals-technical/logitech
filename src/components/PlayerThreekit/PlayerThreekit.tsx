@@ -4,8 +4,7 @@ import React from 'react'
 
 
 export const PlayerThreekit = () => {
-    console.log('PlayerThreekit');
-
+  
     return (
         <Player > </Player>
     )
