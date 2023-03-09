@@ -91,6 +91,16 @@ export const SetDefafaultValue = () => {
                             setConfiguration({ ["Camera"]: "Camera_Keyboard_3d" })
                         }
                     }
+                    setTimeout(() => {
+                        const elements = document.getElementsByClassName('blob');
+
+                        // перетворюємо HTML колекцію в масив
+                        const elementsArray = Array.from(elements);
+                        //@ts-ignore
+                        elementsArray.forEach(element => element.style.display = 'none');
+
+
+                    }, 600)
 
                     setTimeout(() => {
                         const elements = document.getElementsByClassName('blob');

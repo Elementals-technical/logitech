@@ -30,8 +30,8 @@ export const ViewControl = () => {
             <div className={s.name}>View Mode</div>
             <div className={s.btnWrap}>
                 <BtnMode name='3D' isActive={checkMode3DConfigUrl(pathname)} onClick={() => {
-                    navigate(url3dTypeConfig)
                     dispatch(setLoadingPlayer(false))
+                    navigate(url3dTypeConfig)
                 }} />
                 <BtnMode name='Desk' isActive={checkModeDeskConfigUrl(pathname)} onClick={() => {
                     dispatch(setLoadingPlayer(false))
