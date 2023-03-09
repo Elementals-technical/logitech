@@ -1,3 +1,5 @@
+import { onAnnotationChange } from './../src/functionConfiguration/view/annotationCollisionMessageStyle.ts'
+
 export default {
     //     //  (optional): determines whether to use the 3D Player (webgl) or
     //     //  the 2D Player (image).
@@ -35,4 +37,7 @@ export default {
     //         //  (optional): Override organization's compression setting for
     //         //  renders in 2D player.
     //         compression,
+    onAnnotationChange: (annotations, parentEl) => {
+        onAnnotationChange(annotations, parentEl)
+    }
 }

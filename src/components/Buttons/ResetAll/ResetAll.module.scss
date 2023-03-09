@@ -1,18 +1,20 @@
 .btnAllReset {
     background: #1E272E;
     border-radius: 8px;
-    padding: 12px 8px;
+    padding: 4px 8px;
     display: flex;
     align-items: center;
+    flex-direction: column;
+    justify-content: center;
     outline: none;
     border: none;
     cursor: pointer;
+    max-width: 50px;
 
     & .icon {
         display: flex;
         align-items: center;
-        justify-content: center;
-        margin-right: 7px;
+        justify-content: center; 
     }
 
     & .name {
@@ -20,7 +22,8 @@
         font-style: normal;
         font-weight: 400;
         font-size: 14px;
+        line-height: 1;
         color: #808E9B;
-
+        white-space: initial;
     }
 }

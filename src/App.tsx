@@ -3,25 +3,39 @@ import { GlobalPage } from './page/GlobalPage/GlobalPage';
 import './fonts/fonts.css'
 import { ThreekitProvider } from '@threekit-tools/treble/dist';
 import { useLocation } from 'react-router-dom';
-import { checkConfigKeyboard, checkConfigMouse, getTypeConfig } from './functionConfiguration/routing/baseUrl';
+import { checkConfigKeyboard, checkConfigMouse, checkMode3DConfigUrl, checkModeDeskConfigUrl, getModeConfigUrl, getTypeConfig } from './functionConfiguration/routing/baseUrl';
+import { onAnnotationChange } from './functionConfiguration/view/annotationCollisionMessageStyle';
 function App() {
 
   const { pathname } = useLocation()
- 
+
+  // const modeConfig = getModeConfigUrl(pathname)
   const saveConfig = {
-    keyboard: 'KVewv9bCR',
-    mouse: '-E3_37UR5'
+    '3d': {
+      keyboard: 'KVewv9bCR',
+      mouse: '-E3_37UR5'
+    },
+    'desk': {
+      all: 'IG4IHEuL-'
+    }
   }
-  let configurationId = saveConfig['keyboard']
+  let configurationId = saveConfig['3d']['keyboard']
 
-  if (checkConfigKeyboard(pathname)) {
-    configurationId = saveConfig['keyboard']
 
+  if (checkModeDeskConfigUrl(pathname)) {
+    configurationId = saveConfig['desk']['all']
+
+  } else if (checkMode3DConfigUrl(pathname)) {
+    if (checkConfigKeyboard(pathname)) {
+      configurationId = saveConfig['3d']['keyboard']
+
+    }
+    if (checkConfigMouse(pathname)) {
+      configurationId = saveConfig['3d']['mouse']
+
+    }
   }
-  if (checkConfigMouse(pathname)) {
-    configurationId = saveConfig['mouse']
 
-  }
 
   const projects = {
     credentials: {
@@ -40,6 +54,10 @@ function App() {
   const threekitEnv = 'preview';
   const playerConfig = {
     allowMobileVerticalOrbit: true,
+    onAnnotationChange: (annotations: any, parentEl: any) => {
+
+      onAnnotationChange(annotations, parentEl)
+    }
   };
 
 

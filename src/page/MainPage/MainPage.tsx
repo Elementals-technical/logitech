@@ -43,7 +43,7 @@ export const MainPage = () => {
                             Title={<><span>G915 TKL</span>LIGHTSPEED</>}
                             buttonClick={<Button
                                 text='Customize keyboard'
-                                onClick={() => { navigate("/keyboard"); }}
+                                onClick={() => { navigate("/3d/keyboard"); }}
                             />}
                             classCart={s.keyboard_config}
                         />
@@ -60,7 +60,7 @@ export const MainPage = () => {
                             Title={<><span>PRO X</span>SUPERLIGHT</>}
                             buttonClick={<Button
                                 text='Customize mouse'
-                                onClick={() => { navigate("/mouse"); }}
+                                onClick={() => { navigate("/3d/mouse"); }}
                             />}
                             classCart={s.mouse_config}
                         />

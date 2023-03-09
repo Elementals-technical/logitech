@@ -40,7 +40,7 @@ export type initialStateT = {
 
 const initialState: initialStateT = {
     viewConfig: {
-        typeConfig: 'mouse',
+        typeConfig: 'keyboard',
         modeConfig: '3D'
     },
     configuration: {

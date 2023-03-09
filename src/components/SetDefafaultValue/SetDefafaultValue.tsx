@@ -4,47 +4,49 @@ import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { useStoreDispatch } from '../..';
 import { checkSelectedThreekitKeyboard, getConfigurationDefaultValue } from '../../functionConfiguration/keyboard/functionKeyboard';
-import { checkConfigKeyboard, getModeConfigUrl, getTypeConfig } from '../../functionConfiguration/routing/baseUrl';
+import { checkConfigKeyboard, checkConfigMouse, getModeConfigUrl, getTypeConfig } from '../../functionConfiguration/routing/baseUrl';
 import { getObjectActive3DConfig, getObjectActiveDESKConfig } from '../../functionConfiguration/routing/threekitRouting';
-import { getModeConfigRelativeUrl } from '../../functionConfiguration/view/modeConfig';
+import { setDeskDefaultValue } from '../../functionConfiguration/threekitFunc/baseFuncThreekit';
+import { getModeConfigRelativeUrl, getTypeModeConfig3D, getTypeModeConfigDesk } from '../../functionConfiguration/view/modeConfig';
 import { setDefaultConfigurations, setLoadingPlayer, setModeConfigurations, setTypeConfig } from '../../store/actions/Settings';
 
 export const SetDefafaultValue = () => {
     const [attributes, setConfiguration] = useConfigurator();
 
     const { pathname } = useLocation()
+
+    const dispatch = useStoreDispatch();
+
+    let modeConfigStore = getModeConfigRelativeUrl(pathname);
+    dispatch(setModeConfigurations(modeConfigStore))
+
     const typeConfig = getTypeConfig(pathname)
     const modeConfig = getModeConfigUrl(pathname)
     const hasLoaded = useThreekitInitStatus();
 
-    const dispatch = useStoreDispatch();
+
 
     useEffect(() => {
         if (hasLoaded) {
-            let modeConfigStore = getModeConfigRelativeUrl(pathname);
-
-            dispatch(setModeConfigurations(modeConfigStore))
             //@ts-ignore
             if (!window['playerThreekit']) {
                 //@ts-ignore
                 const playerThreekit = window.threekit.player.enableApi('player');
                 //@ts-ignore
                 window.playerThreekit = playerThreekit;
-
-
             }
 
             if (typeConfig) {
+                debugger
+                if (getTypeModeConfigDesk(modeConfigStore)) {
+                    setDeskDefaultValue(setConfiguration)
+                } else if (getTypeModeConfig3D(modeConfigStore)) {
 
-                if (modeConfigStore === 'DESK') {
-                    const objectActiveDESKConfig = getObjectActiveDESKConfig()
-                    console.log('objectActiveDESKConfig', objectActiveDESKConfig);
-                    console.log('setConfiguration', setConfiguration);
+                    if (checkConfigMouse(pathname)) {
+                        const objValue = getObjectActive3DConfig(typeConfig)
+                        if (setConfiguration) setConfiguration(objValue)
+                    }
 
-                    if (setConfiguration) setConfiguration(objectActiveDESKConfig)
-                } else {
-                    const objValue = getObjectActive3DConfig(typeConfig)
-                    if (setConfiguration) setConfiguration(objValue)
                 }
 
                 setTimeout(() => {
@@ -52,7 +54,16 @@ export const SetDefafaultValue = () => {
                     dispatch(setLoadingPlayer(true))
                 }, 1200)
 
+            } else if (getTypeModeConfigDesk(modeConfigStore)) {
+                debugger
+                setDeskDefaultValue(setConfiguration)
+                setTimeout(() => {
+                    dispatch(setDefaultConfigurations(getConfigurationDefaultValue()))
+                    dispatch(setLoadingPlayer(true))
+                }, 1200)
             }
+
+
         }
     }, [hasLoaded]);
 
@@ -62,26 +73,20 @@ export const SetDefafaultValue = () => {
         //@ts-ignore
         if (typeConfig && setConfiguration && window['playerThreekit']) {
             dispatch(setDefaultConfigurations(getConfigurationDefaultValue()))
-
-
             let modeConfigStore = getModeConfigRelativeUrl(pathname);
-            console.log('modeConfigStore111', modeConfigStore);
-
-            if (modeConfigStore === 'DESK') {
-                // const objectActiveDESKConfig = getObjectActiveDESKConfig()
-                // if (setConfiguration) setConfiguration(objectActiveDESKConfig)
-            } else {
-                const objValue = getObjectActive3DConfig(typeConfig)
-                if (setConfiguration) setConfiguration(objValue)
-            }
-
             dispatch(setModeConfigurations(modeConfigStore))
 
-            if (!checkSelectedThreekitKeyboard(attributes)) {
+
+
+            if (getTypeModeConfigDesk(modeConfigStore)) {
+                setDeskDefaultValue(setConfiguration)
+            } else if (getTypeModeConfig3D(modeConfigStore)) {
+
                 const objValue = getObjectActive3DConfig(typeConfig)
                 if (setConfiguration) setConfiguration(objValue)
-
             }
+
+
             setTimeout(() => {
                 dispatch(setLoadingPlayer(true))
             }, 1000)
@@ -94,10 +99,9 @@ export const SetDefafaultValue = () => {
         if (hasLoaded) {
             if (modeConfig) {
                 let modeConfigStore = getModeConfigRelativeUrl(pathname);
-                if (modeConfigStore === 'DESK') {
-                    // const objectActiveDESKConfig = getObjectActiveDESKConfig()
-                    // if (setConfiguration) setConfiguration(objectActiveDESKConfig)
-                } else {
+                if (getTypeModeConfigDesk(modeConfigStore)) {
+                    setDeskDefaultValue(setConfiguration)
+                } else if (getTypeModeConfig3D(modeConfigStore)) {
                     const objValue = getObjectActive3DConfig(typeConfig)
                     if (setConfiguration) setConfiguration(objValue)
                 }

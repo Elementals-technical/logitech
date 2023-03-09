@@ -9,10 +9,12 @@ export const getObjectActive3DConfig = (typeConfig: any) => {
         keyboard: {
             "Customize keyboard": "Keyboard",
             "Customize mouse": "None",
+            "Show in workspace": "None",
         },
         mouse: {
             "Customize keyboard": "None",
             "Customize mouse": "Mouse",
+            "Show in workspace": "None",
         }
     }
 

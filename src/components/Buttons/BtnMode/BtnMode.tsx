@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { CSSProperties } from 'react'
 import s from './BtnMode.module.scss'
 
 
@@ -9,9 +9,10 @@ import s from './BtnMode.module.scss'
 interface BtnModeProps {
     name: string;
     onClick?: () => void;
+    isActive?: boolean
 }
 
-export const BtnMode: React.FC<BtnModeProps> = ({ onClick, name }) => {
+export const BtnMode: React.FC<BtnModeProps> = ({ onClick, name, isActive }) => {
     /**
      * Обробник кліку на кнопці
      */
@@ -21,8 +22,16 @@ export const BtnMode: React.FC<BtnModeProps> = ({ onClick, name }) => {
         }
     };
 
+    let style: CSSProperties = {}
+     
+    if (isActive) style = {
+        borderColor: '#fff',
+        color: '#fff'
+
+    }
+
     return (
-        <button className={s.btn_mode} onClick={handleClick}>
+        <button className={s.btn_mode} style={style} onClick={handleClick}>
             {name}
         </button>
     );

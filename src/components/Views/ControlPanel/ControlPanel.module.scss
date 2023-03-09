@@ -3,29 +3,34 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    padding: 24px 36px 24px;
+    padding: 36px 24px 0;
     background: #242F38;
     // opacity: 0.8;
     border-radius: 16px;
 }
 
 .hederControlPanel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+
     .name {
         font-size: 24px;
         color: #fff;
         font-family: "Gilroy";
         font-style: normal;
         font-weight: 700;
-        line-height: 1.2;
+        line-height: 1;
     }
 
     .subText {
         font-weight: 400;
-        font-size: 18px;
+        font-size: 16px;
         color: #fff;
         font-family: "Gilroy";
         font-style: normal;
-        margin: 12px 0 26px;
+        margin: 8px 0 0;
         line-height: 1;
     }
 }
@@ -33,33 +38,18 @@
 .footerControl {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 
-
-
-    & .cartWrap {
-        display: flex;
-        align-items: center;
-
-        & .price {
-            color: #FFFFFF;
-            margin-right: 8px;
-            font-weight: 400;
-            font-size: 14px;
-        }
-
-
-    }
 }
 
 .mainPanel {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: calc(100% - 85px);
+    height: calc(100% - 100px);
 
     & .wrapField {
-        height: calc(100% - 70px);
+        height: 100%;
         overflow: auto;
 
         &::-webkit-scrollbar {
@@ -87,4 +77,9 @@
 
         }
     }
+}
+
+.controlPanelDesk {
+    background: #242f38cc;
+
 }

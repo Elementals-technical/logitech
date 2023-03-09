@@ -16,7 +16,7 @@ export const ResetAll = () => {
     const typeConfig = getTypeConfig(pathname);
 
     const defaultvalue = useStoreSelector(getDefaultConfigReleativeTypeConfig(typeConfig))
- 
+
     /**
    * Обробник кліку на кнопці
    */

@@ -17,8 +17,17 @@ import { SetDefafaultValue } from '../../components/SetDefafaultValue/SetDefafau
 import { useStoreSelector } from '../..';
 import { getTypeModeConfig3D, getTypeModeConfigDesk } from '../../functionConfiguration/view/modeConfig';
 import { getModeConfig } from '../../store/selectors/selectors';
+import { ViewControl } from '../../components/Views/ViewControl/ViewControl';
+import { checkConfigKeyboard, checkConfigMouse, checkIsConfigObject } from '../../functionConfiguration/routing/baseUrl';
+import { InfoMessage } from '../../components/Views/InfoMessage/InfoMessage';
+import { MouseIconSvg } from '../../assets/svg/MouseIconSvg';
+import { Conponent360Drag } from '../../assets/svg/360Drag';
+import { TurnOnOff } from '../../components/Views/TurnOnOff/TurnOnOff';
 
 export const Config3DMode = () => {
+    const { pathname } = useLocation()
+
+
     const navigate = useNavigate();
 
     const modeConfig = useStoreSelector(getModeConfig)
@@ -26,49 +35,92 @@ export const Config3DMode = () => {
     let classPlayer = `${s.player}`
     if (getTypeModeConfigDesk(modeConfig)) classPlayer += ` ${s.player_desk}`
 
-        return (
+    let classPanelColor = `${s.controlPanelDesk}`
 
-            <>
-                <div className={s.page}>
-
-                    <div className={`${s.containerPage} ${s.model}`}>
-
-                        <div className={s.logoLigetch}><LogoLogitech /></div>
-                        {getTypeModeConfig3D(modeConfig) && <div className={s.infoPage}>
-                            <BtnBack onHandle={() => navigate('/')} />
-                            <NameModel />
-                        </div>}
-                        <div className={s.page_config}>
-                            <div className={s.player}>
-                                <Player minHeight="250px"> </Player>
-                            </div>
-
-                            {getTypeModeConfig3D(modeConfig) && <div className={s.boxConfig}>
-                                <div className={s.wrapHeader}>
-                                    <HeaderInfoConfig />
-                                </div>
-                                <div className={s.wrapInfo}>
-                                    <InfoMessagesWrap />
-                                </div>
-                            </div>}
-
-                            {getTypeModeConfig3D(modeConfig) && <div className={s.boxConfig_BG}>
-                                <PlayerComponent />
-                            </div>}
-
-                            {getTypeModeConfig3D(modeConfig) && <div className={s.boxControlConfig}>
-                                <ControlPanel />
-                            </div>}
+    if (checkConfigMouse(pathname)) classPanelColor += ` ${s.controlPositionPanelDeskMouse}`
+    if (checkConfigKeyboard(pathname)) classPanelColor += ` ${s.controlPositionPanelDeskKeyboard}`
 
 
-                            <SetDefafaultValue />
+    return (
+
+        <>
+            <div className={s.page}>
+                {getTypeModeConfigDesk(modeConfig) &&
+                    <>
+                        <div className={s.bg}>
+                            <RadialBG />
+                        </div>
+                        <div className={s.lightBG}>
+                            <img src={light} className={s.imgBG} />
+                        </div>
+                    </>
+
+                }
 
 
+                <div className={`${s.containerPage} ${s.model}`}>
+                    {getTypeModeConfig3D(modeConfig) && <div className={s.logoLigetch}><LogoLogitech /></div>}
+
+                    {getTypeModeConfig3D(modeConfig) && <div className={s.infoPage}>
+                        <BtnBack onHandle={() => navigate('/')} />
+                        <NameModel />
+                    </div>}
+                    <div className={s.page_config}>
+                        <div className={classPlayer}>
+                            <Player minHeight="250px"> </Player>
                         </div>
 
+                        {getTypeModeConfig3D(modeConfig) && <div className={s.boxConfig}>
+                            <div className={s.wrapHeader}>
+                                <HeaderInfoConfig />
+                            </div>
+                            <div className={s.wrapInfo}>
+                                <InfoMessagesWrap />
+                            </div>
+                        </div>}
+
+                        {getTypeModeConfig3D(modeConfig) && <div className={s.boxConfig_BG}>
+                            <PlayerComponent />
+                        </div>}
+
+                        {getTypeModeConfig3D(modeConfig) && <div className={s.boxControlConfig}>
+                            <ControlPanel />
+                        </div>}
+
+
+                        <SetDefafaultValue />
+
+                        {getTypeModeConfigDesk(modeConfig) && checkIsConfigObject(pathname) &&
+                            <div className={s.controlPanelDesk}>
+                                <ControlPanel />
+                            </div>
+                        }
+                        {getTypeModeConfigDesk(modeConfig) &&
+                            <div className={s.wrapInfoDeskHeader}>
+                                <div className={s.logoLigetch}><LogoLogitech /></div>
+                                <div className={s.title}>Say goodbye to clunky default settings and hello to a personalized setup</div>
+                                <div className={s.description}>Let's get started by selecting either the mouse or keyboard option to begin customizing your setup</div>
+                            </div>
+
+                        }
+                        {getTypeModeConfigDesk(modeConfig) &&
+                            <div className={s.wrapInfoDesk}>
+                                <div className={s.boxTurn}>
+                                    <TurnOnOff />
+                                </div>
+                                <InfoMessage Icon={<MouseIconSvg />} text="Use mouse wheel to zoom in/out" style={{ maxWidth: '135px' }} />
+                                <InfoMessage Icon={<Conponent360Drag />} text="Click & Drag to Rotate 360°" />
+                                <ViewControl />
+                            </div>
+
+                        }
+
+
                     </div>
+
                 </div>
-                <LoadingConfig />
-            </>
-        )
+            </div>
+            <LoadingConfig />
+        </>
+    )
 }

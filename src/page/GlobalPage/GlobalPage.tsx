@@ -9,7 +9,7 @@ import s from './GlobalPage.module.scss'
 export const GlobalPage = () => {
     const [isVisibleMainPage, setVisibleMainPage] = useState(true)
     const { pathname } = useLocation()
- 
+
     useEffect(() => {
         const isPage = checkIsPageConfig(pathname);
         if (isPage) setVisibleMainPage(false)

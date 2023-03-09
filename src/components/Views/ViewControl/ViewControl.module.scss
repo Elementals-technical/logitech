@@ -8,7 +8,7 @@
     font-size: 14px;
     line-height: 130%;
     color: #fff;
-    font-family:  "Gilroy";
+    font-family: "Gilroy";
     font-style: normal;
     margin-right: 10px;
 }
@@ -17,4 +17,12 @@
     display: grid;
     gap: 10px;
     grid-template-columns: auto auto;
+}
+
+.controlDesk {
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+    bottom: 5%;
+    transform: translate(-50%, 0%);
 }
