@@ -23,10 +23,11 @@ export const BtnMode: React.FC<BtnModeProps> = ({ onClick, name, isActive }) => 
     };
 
     let style: CSSProperties = {}
-     
+
     if (isActive) style = {
         borderColor: '#fff',
-        color: '#fff'
+        color: '#fff',
+        pointerEvents: 'none'
 
     }
 

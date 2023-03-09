@@ -222,7 +222,7 @@ export const SetDefafaultValue = () => {
                 setTimeout(() => {
                     dispatch(setModeConfigurations(modeConfigStore))
                     dispatch(setLoadingPlayer(true))
-                }, 1200)
+                }, 1800)
 
             }
         }
