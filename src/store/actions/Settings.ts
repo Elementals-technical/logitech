@@ -19,3 +19,7 @@ export const setDefaultConfigurations= (data: any): any => ({
     type: TYPE_REDUCER.SET_DEFAULT_VALUE,
     payload: data,
 });
+export const setModeConfigurations= (data: any): any => ({
+    type: TYPE_REDUCER.SET_MODE_CONFIG,
+    payload: data,
+});

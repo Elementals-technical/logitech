@@ -15,13 +15,13 @@ export type errorT = {
 };
 
 export type configType = 'mouse' | 'keyboard' | ''
-type viewConfig = '3D' | 'DESK'
+export type modeConfig = '3D' | 'DESK'
 
 
 export type initialStateT = {
     viewConfig: {
         typeConfig: configType,
-        viewConfig: viewConfig
+        modeConfig: modeConfig
     }
     configuration: {
         default: {
@@ -41,7 +41,7 @@ export type initialStateT = {
 const initialState: initialStateT = {
     viewConfig: {
         typeConfig: 'mouse',
-        viewConfig: '3D'
+        modeConfig: '3D'
     },
     configuration: {
         default: {
@@ -111,6 +111,18 @@ const Settings = (state = initialState, action: any) => {
                 configuration: {
                     ...state['configuration'],
                     default: defaultConfig
+                }
+            }
+            break;
+        }
+        case TYPE_REDUCER.SET_MODE_CONFIG: {
+            const modeConfig: any = action.payload;
+
+            return {
+                ...state,
+                viewConfig: {
+                    ...state['viewConfig'],
+                    modeConfig: modeConfig
                 }
             }
             break;

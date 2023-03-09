@@ -35,7 +35,7 @@ export const AcordionComponent: React.FC<AccordionProps> = ({ title, children, i
         return '0px';
     };
     const getMaxHeight = () => {
-        debugger
+         
         if (contentRef && contentRef.current && contentRef.current.parentElement && contentRef.current.parentElement.parentElement) {
 
             const heightWrapAcordion = contentRef.current.parentElement.parentElement.clientHeight;

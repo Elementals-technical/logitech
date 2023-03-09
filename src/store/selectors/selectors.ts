@@ -1,3 +1,19 @@
+import { modeConfig } from "../reducers/Settings";
+
+export const getViewConfig = (state: any) => {
+    const viewConfig = state.Configurations.viewConfig;
+    return viewConfig;
+};
+export const getModeConfig = (state: any): modeConfig => {
+    const viewConfig = getViewConfig(state);
+    return viewConfig['modeConfig'];
+};
+
+
+
+
+
+
 export const getCheckLoadThreekitPlayer = (state: any): boolean => {
     const isLoadThreekitPlayer = state.Configurations.loader.checkLoadThreekitPlayer;
     return isLoadThreekitPlayer;

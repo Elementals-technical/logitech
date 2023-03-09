@@ -42,7 +42,7 @@ export const ControlFieldsMouse = (): any => {
     let allAttribures = listAttribures.filter((item: any) => !['Body colors'].includes(item['name']))
 
 
-
+ 
     // "Single Color"
     return Object.values(listAttribures).length > 0 ?
         <div className={s.wrap}>

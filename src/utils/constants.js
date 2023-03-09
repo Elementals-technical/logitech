@@ -3,6 +3,7 @@ export const TYPE_REDUCER = {
     LOADING_PLAYER: "[config]::set loading player",
     SET_OPENING_SECTION: "[config]::set opening section type config",
     SET_DEFAULT_VALUE: "[config]::set defaultConfig",
+    SET_MODE_CONFIG: "[config]::set mode config",
 
 };
 
