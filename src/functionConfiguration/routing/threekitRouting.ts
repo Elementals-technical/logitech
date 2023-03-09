@@ -18,7 +18,7 @@ export const getObjectActive3DConfig = (typeConfig: any) => {
         }
     }
 
-    const listAttrConfig = displayAttributes.filter((attr: any) => ["Customize keyboard", "Customize mouse"].includes(attr['name']))
+    const listAttrConfig = displayAttributes.filter((attr: any) => ["Customize keyboard", "Customize mouse", 'Show in workspace'].includes(attr['name']))
 
     let get3DConfigProperty: any = JSON.parse(JSON.stringify(activeConfig3D[typeConfig]))
 

@@ -7,6 +7,7 @@ import { checkSelectedThreekitKeyboard, getConfigurationDefaultValue } from '../
 import { checkConfigKeyboard, checkConfigMouse, getModeConfigUrl, getTypeConfig } from '../../functionConfiguration/routing/baseUrl';
 import { getObjectActive3DConfig, getObjectActiveDESKConfig } from '../../functionConfiguration/routing/threekitRouting';
 import { setDeskDefaultValue } from '../../functionConfiguration/threekitFunc/baseFuncThreekit';
+import { deleteNode } from '../../functionConfiguration/view/annotationCollisionMessageStyle';
 import { getModeConfigRelativeUrl, getTypeModeConfig3D, getTypeModeConfigDesk } from '../../functionConfiguration/view/modeConfig';
 import { setDefaultConfigurations, setLoadingPlayer, setModeConfigurations, setTypeConfig } from '../../store/actions/Settings';
 
@@ -41,7 +42,7 @@ export const SetDefafaultValue = () => {
                 if (getTypeModeConfigDesk(modeConfigStore)) {
                     setDeskDefaultValue(setConfiguration)
                 } else if (getTypeModeConfig3D(modeConfigStore)) {
-
+                    deleteNode()
                     if (checkConfigMouse(pathname)) {
                         const objValue = getObjectActive3DConfig(typeConfig)
                         if (setConfiguration) setConfiguration(objValue)
@@ -81,7 +82,7 @@ export const SetDefafaultValue = () => {
             if (getTypeModeConfigDesk(modeConfigStore)) {
                 setDeskDefaultValue(setConfiguration)
             } else if (getTypeModeConfig3D(modeConfigStore)) {
-
+                deleteNode()
                 const objValue = getObjectActive3DConfig(typeConfig)
                 if (setConfiguration) setConfiguration(objValue)
             }
@@ -102,6 +103,7 @@ export const SetDefafaultValue = () => {
                 if (getTypeModeConfigDesk(modeConfigStore)) {
                     setDeskDefaultValue(setConfiguration)
                 } else if (getTypeModeConfig3D(modeConfigStore)) {
+                    deleteNode()
                     const objValue = getObjectActive3DConfig(typeConfig)
                     if (setConfiguration) setConfiguration(objValue)
                 }

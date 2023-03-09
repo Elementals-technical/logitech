@@ -53,7 +53,7 @@ export const ControlFieldsMouse = (): any => {
                 const type = getInfoTypeAttributeMouse(threekitName)
                 const valueName = getInfoValeuNameAttribute(item)
                
-                debugger
+                 
                 return (
 
                     <AcordionComponent isSelected={idActiveSection === threekitName} onChange={() => handleChangeAcordion(threekitName)} title={label} value={valueName}>

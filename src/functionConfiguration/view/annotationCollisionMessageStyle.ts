@@ -67,3 +67,15 @@ function setAnnotation(annotation: any, el: any = document.createElement('div'))
 
     return el;
 }
+
+
+export const deleteNode = async () => {
+
+    let pointsHTMLs: any = await document.getElementsByClassName('blob');
+    debugger
+    const elementsArray = await Array.from(pointsHTMLs);
+
+    // видаляємо кожен елемент з масиву
+    await elementsArray.forEach((element: any) => element.remove());
+
+};

@@ -57,7 +57,17 @@ export const ControlFieldsKeyBoard = (): any => {
         const label = getInfoLabelAttribute(threekitName)
         return { [label]: getInfoValeuNameAttribute(item) }
     })
-    debugger
+
+    let valueString = selectedValue.map(item => {
+        let key = Object.keys(item)[0];
+        let label = 'Primary'
+        if (key.includes('Primary keys color')) label = 'Primary';
+        if (key.includes('Secondary keys color')) label = 'Secondary';
+
+        return `${label} - ${item[key]}`
+    }).join(' | ')
+
+     
     // "Single Color"
     return Object.values(listAttribures).length > 0 ?
         <div className={s.wrap}>
@@ -81,7 +91,7 @@ export const ControlFieldsKeyBoard = (): any => {
                 )
             })}
 
-            <AcordionComponent isSelected={idActiveSection === 'Keyboard layout color pallet'} onChange={() => handleChangeAcordion("Keyboard layout color pallet")} title={'Keyboard layout color pallet'}>
+            <AcordionComponent isSelected={idActiveSection === 'Keyboard layout color pallet'} onChange={() => handleChangeAcordion("Keyboard layout color pallet")} title={'Keyboard layout color pallet'} value={valueString}>
                 <div className={s.wrapAcordion}>
                     <div className={s.wrapColors}>
                         {Object.values(listAttributeColor).map((item: any) => {
