@@ -33,27 +33,22 @@ export const getInfoTypeAttributeMouse = (name: string) => {
 }
 
 export const getInfoValeuNameAttribute = (attribute: any) => {
-    console.log('attribute', attribute);
-
+   
     const valueAttribute = getThreekitValue(attribute)
     if (!valueAttribute) return undefined
     const values = getThreekitValues(attribute)
 
-
-    console.log('value', valueAttribute);
-
+ 
     let valueLabel = valueAttribute;
     if (valueAttribute && valueAttribute['assetId']) {
         let value = values.filter((item: any) => item['assetId'] === valueAttribute['assetId'])
-        console.log('value', value);
-
+        
         if (value.length > 0) {
             valueLabel = value[0]['label']
         }
     }
 
-    console.log('valueLabel', valueLabel);
-
+    
     return valueLabel
 }
 
@@ -110,13 +105,10 @@ export const checkSelectedThreekitKeyboard = (attributes: any) => {
     const valuesAttribute: any = attributeKyeboard['values'];
 
     const keyboardItem = valuesAttribute.filter((item: any) => item['name'] === "Keyboard")
-    console.log('keyboardItem', keyboardItem[0]['assetId']);
-    console.log('assetId', assetId);
-
+   
     if (keyboardItem.length > 0 && keyboardItem[0]['assetId']) {
         let valueKeyboardItem = keyboardItem[0]['assetId'];
-        console.log('valueKeyboardItem', valueKeyboardItem);
-
+       
         if (valueKeyboardItem == assetId) return true
     }
     return false

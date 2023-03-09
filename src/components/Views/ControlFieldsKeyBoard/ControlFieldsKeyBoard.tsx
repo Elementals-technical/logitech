@@ -47,9 +47,7 @@ export const ControlFieldsKeyBoard = (): any => {
             listAttributeColor = listAttributeColor.filter((item: any) => item['name'] !== "Color 2")
         }
     }
-    console.log('listAttribures', listAttribures);
-    console.log('listAttributeColor', listAttributeColor);
-
+   
 
     let selectedValue = Object.values(listAttributeColor).map((item: any) => {
         const threekitName = getThreekitName(item)

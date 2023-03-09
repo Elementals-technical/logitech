@@ -1,13 +1,14 @@
 import { useConfigurator, usePlayerLoadingStatus, useThreekitInitStatus } from '@threekit-tools/treble/dist';
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useStoreDispatch } from '../..';
 import { checkSelectedThreekitKeyboard, getConfigurationDefaultValue } from '../../functionConfiguration/keyboard/functionKeyboard';
 import { checkConfigKeyboard, checkConfigMouse, getModeConfigUrl, getTypeConfig } from '../../functionConfiguration/routing/baseUrl';
 import { getObjectActive3DConfig, getObjectActiveDESKConfig } from '../../functionConfiguration/routing/threekitRouting';
 import { setDeskDefaultValue } from '../../functionConfiguration/threekitFunc/baseFuncThreekit';
 import { deleteNode } from '../../functionConfiguration/view/annotationCollisionMessageStyle';
+import { selectedObject } from '../../functionConfiguration/view/customPoint';
 import { getModeConfigRelativeUrl, getTypeModeConfig3D, getTypeModeConfigDesk } from '../../functionConfiguration/view/modeConfig';
 import { setDefaultConfigurations, setLoadingPlayer, setModeConfigurations, setTypeConfig } from '../../store/actions/Settings';
 
@@ -17,6 +18,7 @@ export const SetDefafaultValue = () => {
     const { pathname } = useLocation()
 
     const dispatch = useStoreDispatch();
+    const navigate = useNavigate()
 
     let modeConfigStore = getModeConfigRelativeUrl(pathname);
     dispatch(setModeConfigurations(modeConfigStore))
@@ -35,10 +37,13 @@ export const SetDefafaultValue = () => {
                 const playerThreekit = window.threekit.player.enableApi('player');
                 //@ts-ignore
                 window.playerThreekit = playerThreekit;
+
+                playerThreekit.tools.addTool(selectedObject(navigate));
+
             }
 
             if (typeConfig) {
-                 
+
                 if (getTypeModeConfigDesk(modeConfigStore)) {
                     setDeskDefaultValue(setConfiguration)
                 } else if (getTypeModeConfig3D(modeConfigStore)) {
@@ -56,7 +61,7 @@ export const SetDefafaultValue = () => {
                 }, 1200)
 
             } else if (getTypeModeConfigDesk(modeConfigStore)) {
-                 
+
                 setDeskDefaultValue(setConfiguration)
                 setTimeout(() => {
                     dispatch(setDefaultConfigurations(getConfigurationDefaultValue()))

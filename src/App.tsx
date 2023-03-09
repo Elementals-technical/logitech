@@ -2,12 +2,13 @@ import React from 'react';
 import { GlobalPage } from './page/GlobalPage/GlobalPage';
 import './fonts/fonts.css'
 import { ThreekitProvider } from '@threekit-tools/treble/dist';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { checkConfigKeyboard, checkConfigMouse, checkMode3DConfigUrl, checkModeDeskConfigUrl, getModeConfigUrl, getTypeConfig } from './functionConfiguration/routing/baseUrl';
 import { onAnnotationChange } from './functionConfiguration/view/annotationCollisionMessageStyle';
 function App() {
 
   const { pathname } = useLocation()
+  const navigate = useNavigate()
 
   // const modeConfig = getModeConfigUrl(pathname)
   const saveConfig = {
@@ -56,7 +57,7 @@ function App() {
     allowMobileVerticalOrbit: true,
     onAnnotationChange: (annotations: any, parentEl: any) => {
 
-      onAnnotationChange(annotations, parentEl)
+      onAnnotationChange(navigate)(annotations, parentEl)
     }
   };
 

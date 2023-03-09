@@ -23,13 +23,12 @@ export const getStyleAnnotation = (annotation: any) => {
 }
 
 
-export function onAnnotationChange(
+export const onAnnotationChange = (navigate: any) => (
     annotations: any,
     parentEl: any,
-) {
+) => {
     lastAnnotations = annotations;
     lastParentEl = parentEl;
-    console.log('asdasdqsd');
 
     if (!parentEl) {
         return;
@@ -41,7 +40,7 @@ export function onAnnotationChange(
         var element = annotationElements[annotation.id];
         var appendToBody = !element;
 
-        element = setAnnotation(annotation, element);
+        element = setAnnotation(navigate)(annotation, element);
 
         if (!appendToBody) {
             continue;
@@ -53,7 +52,7 @@ export function onAnnotationChange(
 
 }
 
-function setAnnotation(annotation: any, el: any = document.createElement('div')) {
+const setAnnotation = (navigate: any) => (annotation: any, el: any = document.createElement('div')) => {
     el.className = "blob";
     el.id = annotation.id;
     el.style.cssText = el.style.cssText + `${getStyleAnnotation(annotation)}`;
@@ -64,6 +63,15 @@ function setAnnotation(annotation: any, el: any = document.createElement('div'))
     el.onmouseout = () => {
         el.style.cssText = ` cursor: default; z-index: 0; ${getStyleAnnotation(annotation)}`
     };
+    el.onclick = () => {
+        if ("annotation_keyboard" === annotation['text']) {
+            navigate(`/desk/keyboard`)
+        }
+        if ("annotation_mouse" === annotation['text']) {
+            navigate(`/desk/mouse`)
+        }
+      
+    }
 
     return el;
 }
@@ -72,7 +80,7 @@ function setAnnotation(annotation: any, el: any = document.createElement('div'))
 export const deleteNode = async () => {
 
     let pointsHTMLs: any = await document.getElementsByClassName('blob');
-    debugger
+
     const elementsArray = await Array.from(pointsHTMLs);
 
     // видаляємо кожен елемент з масиву
