@@ -5,6 +5,27 @@ let annotationElements: any = {};
 let opened: any = {};
 
 
+
+export const hiddenAnotation = () => {
+    const elements = document.getElementsByClassName('blob');
+
+    // перетворюємо HTML колекцію в масив
+    const elementsArray = Array.from(elements);
+
+    //@ts-ignore
+    elementsArray.forEach(element => element.style.display = 'none');
+
+}
+export const showAnotation = () => {
+    const elements = document.getElementsByClassName('blob');
+
+    // перетворюємо HTML колекцію в масив
+    const elementsArray = Array.from(elements);
+    //@ts-ignore
+    elementsArray.forEach(element => element.style.display = 'block');
+
+}
+
 export const getStyleAnnotation = (annotation: any) => {
     return `  
     position: absolute;
@@ -18,7 +39,7 @@ export const getStyleAnnotation = (annotation: any) => {
     background: white;
     box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
     animation:pulse-white 2s infinite !important;
-
+    
    `
 }
 

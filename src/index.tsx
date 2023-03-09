@@ -21,16 +21,14 @@ export const useStoreDispatch = createDispatchHook(store1Context);
 export const useStoreSelector = createSelectorHook(store1Context);
 
 root.render(
-  <React.StrictMode>
-    <Provider store={store} context={store1Context}>
+  <Provider store={store} context={store1Context}>
 
-      <Router>
+    <Router>
 
-        <App />
+      <App />
 
-      </Router>
-    </Provider>
-  </React.StrictMode>
+    </Router>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

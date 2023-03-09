@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import s from './MainPage.module.scss'
 
@@ -8,7 +8,8 @@ import { Button } from '../../components/Buttons/Button/Button'
 import { Cart } from '../../components/Carts/Cart/Cart'
 import { IntroductorySection } from './sections/IntroductorySection/IntroductorySection'
 import { RadialBG } from '../../assets/svg/radialBG'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
+import { checkIsPageConfig } from '../../functionConfiguration/routing/baseUrl'
 
 const useScroll = () => {
     const elRef: any = useRef(null);
@@ -21,9 +22,20 @@ export const MainPage = () => {
     const navigate = useNavigate();
     const [executeScroll, elRef] = useScroll()
 
+    const [isVisibleMainPage, setVisibleMainPage] = useState(true)
+    const { pathname } = useLocation()
+
+    useEffect(() => {
+        const isPage = checkIsPageConfig(pathname);
+        if (isPage) setVisibleMainPage(false)
+        if (!isPage) setVisibleMainPage(true)
+    }, [pathname])
 
 
-    return (
+
+
+    return isVisibleMainPage ? <div className={s.modalWrap}>
+
         <main className={`${s.main} ${s.container}`}>
             <div className={s.bg}>
                 <RadialBG />
@@ -71,5 +83,5 @@ export const MainPage = () => {
 
             </section>
         </main >
-    )
+    </div> : <></>
 }

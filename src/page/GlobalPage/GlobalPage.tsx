@@ -7,23 +7,14 @@ import { MainPage } from '../MainPage/MainPage'
 import s from './GlobalPage.module.scss'
 
 export const GlobalPage = () => {
-    const [isVisibleMainPage, setVisibleMainPage] = useState(true)
-    const { pathname } = useLocation()
-
-    useEffect(() => {
-        const isPage = checkIsPageConfig(pathname);
-        if (isPage) setVisibleMainPage(false)
-        if (!isPage) setVisibleMainPage(true)
-    }, [pathname])
 
     return (
         <div>
             <Config3DMode />
 
-            {isVisibleMainPage && (<div className={s.modalWrap}>
 
-                <MainPage />
-            </div>)}
+            <MainPage />
+
         </div>
     )
 }

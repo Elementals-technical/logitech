@@ -8,9 +8,10 @@ interface Props {
 
 }
 
-export const Input = ({ delay = 500, nameAttribute }: Props) => {
+export const Input = ({ delay = 200, nameAttribute }: Props) => {
 
     const [attribute, setAttribute]: any = useAttribute(nameAttribute);
+console.log('nameAttribute',nameAttribute);
 
    
 

@@ -7,7 +7,7 @@ import { checkSelectedThreekitKeyboard, getConfigurationDefaultValue } from '../
 import { checkConfigKeyboard, checkConfigMouse, getModeConfigUrl, getTypeConfig } from '../../functionConfiguration/routing/baseUrl';
 import { getObjectActive3DConfig, getObjectActiveDESKConfig } from '../../functionConfiguration/routing/threekitRouting';
 import { setDeskDefaultValue } from '../../functionConfiguration/threekitFunc/baseFuncThreekit';
-import { deleteNode } from '../../functionConfiguration/view/annotationCollisionMessageStyle';
+import { deleteNode, hiddenAnotation, showAnotation } from '../../functionConfiguration/view/annotationCollisionMessageStyle';
 import { selectedObject } from '../../functionConfiguration/view/customPoint';
 import { getModeConfigRelativeUrl, getTypeModeConfig3D, getTypeModeConfigDesk } from '../../functionConfiguration/view/modeConfig';
 import { setDefaultConfigurations, setLoadingPlayer, setModeConfigurations, setTypeConfig } from '../../store/actions/Settings';
@@ -27,25 +27,12 @@ export const SetDefafaultValue = () => {
     const modeConfig = getModeConfigUrl(pathname)
     const hasLoaded = useThreekitInitStatus();
 
+
+
     if (getTypeModeConfig3D(modeConfigStore)) {
-        const elements = document.getElementsByClassName('blob');
-
-        // перетворюємо HTML колекцію в масив
-        const elementsArray = Array.from(elements);
-        //@ts-ignore
-        elementsArray.forEach(element => element.style.display = 'none');
-
-
+        hiddenAnotation()
     } else if (getTypeModeConfigDesk(modeConfigStore)) {
-        const elements = document.getElementsByClassName('blob');
-
-        // перетворюємо HTML колекцію в масив
-        const elementsArray = Array.from(elements);
-
-        //@ts-ignore
-        elementsArray.forEach(element => element.style.display = 'block');
-
-
+        showAnotation()
     }
 
     useEffect(() => {
@@ -59,6 +46,9 @@ export const SetDefafaultValue = () => {
 
                 playerThreekit.tools.addTool(selectedObject(navigate));
 
+                setTimeout(() => {
+                    showAnotation()
+                }, 500)
             }
 
             if (typeConfig) {
@@ -75,6 +65,7 @@ export const SetDefafaultValue = () => {
                         } else {
                             setConfiguration({ ["Camera"]: "CameraMain" })
                         }
+                        showAnotation()
                     }
 
                 } else if (getTypeModeConfig3D(modeConfigStore)) {
@@ -91,27 +82,9 @@ export const SetDefafaultValue = () => {
                             setConfiguration({ ["Camera"]: "Camera_Keyboard_3d" })
                         }
                     }
-                    setTimeout(() => {
-                        const elements = document.getElementsByClassName('blob');
-
-                        // перетворюємо HTML колекцію в масив
-                        const elementsArray = Array.from(elements);
-                        //@ts-ignore
-                        elementsArray.forEach(element => element.style.display = 'none');
-
-
-                    }, 600)
-
-                    setTimeout(() => {
-                        const elements = document.getElementsByClassName('blob');
-
-                        // перетворюємо HTML колекцію в масив
-                        const elementsArray = Array.from(elements);
-                        //@ts-ignore
-                        elementsArray.forEach(element => element.style.display = 'none');
-
-
-                    }, 1200)
+                    setTimeout(() => hiddenAnotation(), 600)
+                    setTimeout(() => hiddenAnotation(), 1200)
+                    setTimeout(() => hiddenAnotation(), 1800)
 
 
 
@@ -136,9 +109,11 @@ export const SetDefafaultValue = () => {
                     }
                 }
 
-
+                showAnotation()
                 setDeskDefaultValue(setConfiguration)
+
                 setTimeout(() => {
+                    showAnotation()
                     dispatch(setDefaultConfigurations(getConfigurationDefaultValue()))
                     dispatch(setLoadingPlayer(true))
                 }, 1200)
@@ -173,6 +148,7 @@ export const SetDefafaultValue = () => {
                     setConfiguration({ ["Camera"]: "Camera_Keyboard" })
                 }
 
+                showAnotation()
 
             } else if (getTypeModeConfig3D(modeConfigStore)) {
 
@@ -189,16 +165,7 @@ export const SetDefafaultValue = () => {
                     }
                 }
 
-                setTimeout(() => {
-                    const elements = document.getElementsByClassName('blob');
-
-                    // перетворюємо HTML колекцію в масив
-                    const elementsArray = Array.from(elements);
-                    //@ts-ignore
-                    elementsArray.forEach(element => element.style.display = 'none');
-
-
-                }, 1200)
+                hiddenAnotation()
 
 
             }
@@ -211,7 +178,7 @@ export const SetDefafaultValue = () => {
 
         } else if (typeConfig === '' && setConfiguration) {
             if (getTypeModeConfigDesk(modeConfigStore)) {
-
+                showAnotation()
                 setConfiguration({ ["Camera"]: "CameraMain" })
 
             }
@@ -235,6 +202,7 @@ export const SetDefafaultValue = () => {
                             setConfiguration({ ["Camera"]: "CameraMain" })
                         }
                     }
+                    showAnotation()
                 } else if (getTypeModeConfig3D(modeConfigStore)) {
 
                     const objValue = getObjectActive3DConfig(typeConfig)
@@ -248,16 +216,7 @@ export const SetDefafaultValue = () => {
                             setConfiguration({ ["Camera"]: "Camera_Keyboard_3d" })
                         }
                     }
-                    setTimeout(() => {
-                        const elements = document.getElementsByClassName('blob');
-
-                        // перетворюємо HTML колекцію в масив
-                        const elementsArray = Array.from(elements);
-                        //@ts-ignore
-                        elementsArray.forEach(element => element.style.display = 'none');
-
-
-                    }, 1200)
+                    hiddenAnotation()
                 }
 
                 setTimeout(() => {
