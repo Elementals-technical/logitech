@@ -152,24 +152,24 @@
 
 .controlPositionPanelDeskKeyboard {
     z-index: 10;
-    min-height: 700px;
+    height: 760px;
     max-width: 384px;
     width: 100%;
     position: absolute;
-    left: 5%;
+    left: 4%;
     top: 50%;
-    transform: translate(0%, -30%);
+    transform: translate(0%, -50%);
 }
 
 .controlPositionPanelDeskMouse {
     z-index: 10;
-    min-height: 700px;
+    height: 760px;
     max-width: 384px;
     width: 100%;
     position: absolute;
-    right: 5%;
+    right: 4%;
     top: 50%;
-    transform: translate(0%, -30%);
+    transform: translate(0%, -50%);
 }
 
 .wrapInfoDesk {

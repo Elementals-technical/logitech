@@ -91,7 +91,7 @@ export const Config3DMode = () => {
                         <SetDefafaultValue />
 
                         {getTypeModeConfigDesk(modeConfig) && checkIsConfigObject(pathname) &&
-                            <div className={s.controlPanelDesk}>
+                            <div className={classPanelColor}>
                                 <ControlPanel />
                             </div>
                         }
