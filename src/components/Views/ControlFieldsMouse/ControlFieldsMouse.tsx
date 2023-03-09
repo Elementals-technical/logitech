@@ -52,8 +52,7 @@ export const ControlFieldsMouse = (): any => {
                 const label = getInfoLabelAttributeMouse(threekitName)
                 const type = getInfoTypeAttributeMouse(threekitName)
                 const valueName = getInfoValeuNameAttribute(item)
-                console.log('valueName', valueName);
-
+               
                 debugger
                 return (
 

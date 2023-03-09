@@ -51,6 +51,13 @@ export const ControlFieldsKeyBoard = (): any => {
     console.log('listAttributeColor', listAttributeColor);
 
 
+    let selectedValue = Object.values(listAttributeColor).map((item: any) => {
+        const threekitName = getThreekitName(item)
+
+        const label = getInfoLabelAttribute(threekitName)
+        return { [label]: getInfoValeuNameAttribute(item) }
+    })
+    debugger
     // "Single Color"
     return Object.values(listAttribures).length > 0 ?
         <div className={s.wrap}>
