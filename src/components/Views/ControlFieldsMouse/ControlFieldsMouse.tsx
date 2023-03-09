@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import s from './ControlFieldsMouse.module.scss'
 
 import { useConfigurator, useNestedConfigurator } from '@threekit-tools/treble/dist';
@@ -22,13 +22,9 @@ export const ControlFieldsMouse = (): any => {
 
     const dispatch = useStoreDispatch()
 
-    
-  
+
+
     const { pathname } = useLocation()
-    useEffect(() => {
-
-    }, [pathname])
-
     const typeConfig = getTypeConfig(pathname)
     const idActiveSection = useStoreSelector(getActiveSection(typeConfig))
 
@@ -51,21 +47,21 @@ export const ControlFieldsMouse = (): any => {
 
     // "Single Color"
     return Object.values(listAttribures).length > 0 ?
-        <div key={uuidv4()} className={s.wrap}>
+        <div className={s.wrap}>
             {Object.values(bodyColorsAttribures).map((item: any) => {
                 const threekitName = getThreekitName(item)
 
                 const label = getInfoLabelAttributeMouse(threekitName)
                 const type = getInfoTypeAttributeMouse(threekitName)
                 const valueName = getInfoValeuNameAttribute(item)
-
-
+               
+                 
                 return (
 
-                    <AcordionComponent key={uuidv4()} isSelected={idActiveSection === threekitName} onChange={() => handleChangeAcordion(threekitName)} title={label} value={valueName}>
-                        {type === 'color' && (<ListColor key={uuidv4()} nameAttribute={item['name']} />)}
-                        {type === 'list' && (<ListTypeItem key={uuidv4()} nameAttribute={item['name']} />)}
-                        {type === 'input' && (<Input key={uuidv4()} nameAttribute={item['name']} />)}
+                    <AcordionComponent isSelected={idActiveSection === threekitName} onChange={() => handleChangeAcordion(threekitName)} title={label} value={valueName}>
+                        {type === 'color' && (<ListColor key={item['name']} nameAttribute={item['name']} />)}
+                        {type === 'list' && (<ListTypeItem key={`body_${item['name']}`} nameAttribute={item['name']} />)}
+                        {type === 'input' && (<Input key={item['name']} nameAttribute={item['name']} />)}
                         <div className={s.wrapReset}>
                             <ResetBtnField nameSettings={['Body colors']} />
                         </div>
@@ -73,7 +69,7 @@ export const ControlFieldsMouse = (): any => {
 
                 )
             })}
-            <AcordionComponent key={uuidv4()} isSelected={idActiveSection === 'Add personalization'} onChange={() => handleChangeAcordion("Add personalization")} title={'Add personalization'}>
+            <AcordionComponent isSelected={idActiveSection === 'Add personalization'} onChange={() => handleChangeAcordion("Add personalization")} title={'Add personalization'}>
                 <div className={s.wrapAcordion}>
                     <div className={s.wrapBox}>
                         {Object.values(allAttribures).map((item: any) => {
@@ -85,10 +81,10 @@ export const ControlFieldsMouse = (): any => {
 
                             return (
                                 <>
-                                    <GroupSetting key={uuidv4()} title={label}>
-                                        {type === 'color' && (<ListColor key={uuidv4()} nameAttribute={item['name']} />)}
-                                        {type === 'list' && (<ListTypeItem key={uuidv4()} nameAttribute={item['name']} />)}
-                                        {type === 'input' && (<Input key={uuidv4()} nameAttribute={item['name']} />)}
+                                    <GroupSetting title={label}>
+                                        {type === 'color' && (<ListColor key={item['name']} nameAttribute={item['name']} />)}
+                                        {type === 'list' && (<ListTypeItem key={`color_${item['name']}`} nameAttribute={item['name']} />)}
+                                        {type === 'input' && (<Input key={item['name']} nameAttribute={item['name']} />)}
 
                                     </GroupSetting>
 
