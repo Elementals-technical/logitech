@@ -85,10 +85,10 @@ export const SetDefafaultValue = () => {
                             setConfiguration({ ["Camera"]: "Camera_Keyboard_3d" })
                         }
                     }
-                    setTimeout(() => hiddenAnotation(), 600)
-                    setTimeout(() => hiddenAnotation(), 1200)
-                    setTimeout(() => hiddenAnotation(), 1800)
-                    setTimeout(() => leftLogoThereekit3D(), 1800)
+                    setTimeout(() => { leftLogoThereekit3D(); hiddenWaterMark(); hiddenAnotation() }, 600)
+                    setTimeout(() => { leftLogoThereekit3D(); hiddenWaterMark(); hiddenAnotation() }, 1200)
+                    setTimeout(() => { leftLogoThereekit3D(); hiddenWaterMark(); hiddenAnotation() }, 1800)
+                    setTimeout(() => { leftLogoThereekit3D(); hiddenWaterMark(); hiddenAnotation() }, 2300)
 
 
 
