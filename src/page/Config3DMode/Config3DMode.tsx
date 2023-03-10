@@ -30,7 +30,7 @@ export const Config3DMode = () => {
 
         <>
             <div className={s.page}>
-                <MainBG />
+                {/* <MainBG /> */}
 
 
                 <div className={`${s.containerPage} ${s.model}`}>

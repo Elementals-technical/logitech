@@ -13,12 +13,12 @@ export const MainBG = () => {
 
     return getTypeModeConfigDesk(modeConfig) ?
         <>
-            <div className={s.bg}>
-                <RadialBG />
-            </div>
-            <div className={s.lightBG}>
-                <img src={light} className={s.imgBG} />
-            </div>
+            {/* <div className={s.bg}>
+                    <RadialBG />
+                </div>
+                <div className={s.lightBG}>
+                    <img src={light} className={s.imgBG} />
+                </div> */}
         </> : <></>
 
 
