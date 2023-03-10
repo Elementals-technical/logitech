@@ -17,7 +17,7 @@ function App() {
       mouse: 'E-rokDhL_'
     },
     'desk': {
-      all: '-9Xu6ZeSH'
+      all: 'l_vjolZUT'
     }
   }
   let configurationId = saveConfig['3d']['keyboard']
