@@ -67,7 +67,7 @@ export const SetDefafaultValue = () => {
                             setConfiguration({ ["Camera"]: "CameraMain" })
                         }
                         showAnotation()
-                        hiddenWaterMark()
+
                         leftLogoThereekitDesk()
                     }
 
@@ -88,7 +88,6 @@ export const SetDefafaultValue = () => {
                     setTimeout(() => hiddenAnotation(), 600)
                     setTimeout(() => hiddenAnotation(), 1200)
                     setTimeout(() => hiddenAnotation(), 1800)
-                    setTimeout(() => hiddenWaterMark(), 1800)
                     setTimeout(() => leftLogoThereekit3D(), 1800)
 
 
@@ -96,9 +95,9 @@ export const SetDefafaultValue = () => {
                 }
 
                 setTimeout(() => {
+                    hiddenWaterMark()
                     dispatch(setDefaultConfigurations(getConfigurationDefaultValue()))
                     dispatch(setLoadingPlayer(true))
-                    hiddenWaterMark()
                 }, 1200)
 
             } else if (getTypeModeConfigDesk(modeConfigStore)) {
@@ -119,6 +118,7 @@ export const SetDefafaultValue = () => {
                 setDeskDefaultValue(setConfiguration)
 
                 setTimeout(() => {
+                    hiddenWaterMark()
                     showAnotation()
                     dispatch(setDefaultConfigurations(getConfigurationDefaultValue()))
                     dispatch(setLoadingPlayer(true))
@@ -180,6 +180,8 @@ export const SetDefafaultValue = () => {
 
 
             setTimeout(() => {
+
+                hiddenWaterMark()
                 dispatch(setLoadingPlayer(true))
             }, 1000)
 
@@ -198,7 +200,7 @@ export const SetDefafaultValue = () => {
             if (modeConfig) {
                 let modeConfigStore = getModeConfigRelativeUrl(pathname);
                 if (getTypeModeConfigDesk(modeConfigStore)) {
-                   
+
                     setDeskDefaultValue(setConfiguration)
                     if (setConfiguration) {
                         if (checkConfigMouse(pathname)) {
@@ -231,6 +233,7 @@ export const SetDefafaultValue = () => {
                 }
 
                 setTimeout(() => {
+                    hiddenWaterMark()
                     dispatch(setModeConfigurations(modeConfigStore))
                     dispatch(setLoadingPlayer(true))
                 }, 1800)

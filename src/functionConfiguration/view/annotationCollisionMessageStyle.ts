@@ -5,7 +5,7 @@ let annotationElements: any = {};
 let opened: any = {};
 
 export const hiddenWaterMark = () => {
-    let elements: any = document.querySelectorAll('[class*="waterMark"]');
+    let elements: any = document.querySelectorAll('[class*="waterMark_"]');
     for (var i = 0; i < elements.length; i++) {
         elements[i].style.display = 'none';
     }
