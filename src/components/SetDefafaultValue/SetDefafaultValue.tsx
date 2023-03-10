@@ -30,7 +30,18 @@ export const SetDefafaultValue = () => {
 
 
     if (getTypeModeConfig3D(modeConfigStore)) {
-        hiddenAnotation()
+        var intervalId = setInterval(function () {
+ 
+
+            if (document.querySelector('.blob')) {
+                clearInterval(intervalId); // остановить выполнение setInterval, если элемент найден
+                leftLogoThereekit3D();
+                hiddenWaterMark();
+                hiddenAnotation()
+
+                // выполнить действия, которые должны быть выполнены после того, как элемент будет найден
+            }
+        }, 400);
     } else if (getTypeModeConfigDesk(modeConfigStore)) {
         showAnotation()
     }
@@ -47,7 +58,6 @@ export const SetDefafaultValue = () => {
                 playerThreekit.tools.addTool(selectedObject(navigate));
 
                 setTimeout(() => {
-                    showAnotation()
                     hiddenWaterMark()
                 }, 500)
             }
@@ -85,10 +95,23 @@ export const SetDefafaultValue = () => {
                             setConfiguration({ ["Camera"]: "Camera_Keyboard_3d" })
                         }
                     }
-                    setTimeout(() => { leftLogoThereekit3D(); hiddenWaterMark(); hiddenAnotation() }, 600)
-                    setTimeout(() => { leftLogoThereekit3D(); hiddenWaterMark(); hiddenAnotation() }, 1200)
-                    setTimeout(() => { leftLogoThereekit3D(); hiddenWaterMark(); hiddenAnotation() }, 1800)
-                    setTimeout(() => { leftLogoThereekit3D(); hiddenWaterMark(); hiddenAnotation() }, 2300)
+
+
+                    var intervalId = setInterval(function () {
+
+                        if (document.querySelector('.blob')) {
+                            clearInterval(intervalId); // остановить выполнение setInterval, если элемент найден
+                            leftLogoThereekit3D();
+                            hiddenWaterMark();
+                            hiddenAnotation()
+
+                            // выполнить действия, которые должны быть выполнены после того, как элемент будет найден
+                        }
+                    }, 400);
+                    // setTimeout(() => { leftLogoThereekit3D(); hiddenWaterMark(); hiddenAnotation() }, 600)
+                    // setTimeout(() => { leftLogoThereekit3D(); hiddenWaterMark(); hiddenAnotation() }, 1200)
+                    // setTimeout(() => { leftLogoThereekit3D(); hiddenWaterMark(); hiddenAnotation() }, 1800)
+                    // setTimeout(() => { leftLogoThereekit3D(); hiddenWaterMark(); hiddenAnotation() }, 2300)
 
 
 
@@ -118,6 +141,7 @@ export const SetDefafaultValue = () => {
                 setDeskDefaultValue(setConfiguration)
 
                 setTimeout(() => {
+                    
                     hiddenWaterMark()
                     showAnotation()
                     dispatch(setDefaultConfigurations(getConfigurationDefaultValue()))
@@ -172,9 +196,17 @@ export const SetDefafaultValue = () => {
                         setConfiguration({ ["Camera"]: "Camera_Keyboard_3d" })
                     }
                 }
-                leftLogoThereekit3D()
-                hiddenAnotation()
+                var intervalId = setInterval(function () {
+                    
+                    if (document.querySelector('.blob')) {
+                        clearInterval(intervalId); // остановить выполнение setInterval, если элемент найден
+                        leftLogoThereekit3D();
+                        hiddenWaterMark();
+                        hiddenAnotation()
 
+                        // выполнить действия, которые должны быть выполнены после того, как элемент будет найден
+                    }
+                }, 400);
 
             }
 
@@ -228,8 +260,17 @@ export const SetDefafaultValue = () => {
                             setConfiguration({ ["Camera"]: "Camera_Keyboard_3d" })
                         }
                     }
-                    leftLogoThereekit3D()
-                    hiddenAnotation()
+                    var intervalId = setInterval(function () {
+                        
+                        if (document.querySelector('.blob')) {
+                            clearInterval(intervalId); // остановить выполнение setInterval, если элемент найден
+                            leftLogoThereekit3D();
+                            hiddenWaterMark();
+                            hiddenAnotation()
+
+                            // выполнить действия, которые должны быть выполнены после того, как элемент будет найден
+                        }
+                    }, 400);
                 }
 
                 setTimeout(() => {
