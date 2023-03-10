@@ -4,6 +4,12 @@ let lastParentEl: any;
 let annotationElements: any = {};
 let opened: any = {};
 
+export const hiddenWaterMark = () => {
+    let elements: any = document.querySelectorAll('[class*="waterMark"]');
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].style.display = 'none';
+    }
+}
 
 
 export const hiddenAnotation = () => {

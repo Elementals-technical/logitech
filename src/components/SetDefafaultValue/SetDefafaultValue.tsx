@@ -7,7 +7,7 @@ import { checkSelectedThreekitKeyboard, getConfigurationDefaultValue } from '../
 import { checkConfigKeyboard, checkConfigMouse, getModeConfigUrl, getTypeConfig } from '../../functionConfiguration/routing/baseUrl';
 import { getObjectActive3DConfig, getObjectActiveDESKConfig } from '../../functionConfiguration/routing/threekitRouting';
 import { setDeskDefaultValue } from '../../functionConfiguration/threekitFunc/baseFuncThreekit';
-import { deleteNode, hiddenAnotation, showAnotation } from '../../functionConfiguration/view/annotationCollisionMessageStyle';
+import { deleteNode, hiddenAnotation, hiddenWaterMark, showAnotation } from '../../functionConfiguration/view/annotationCollisionMessageStyle';
 import { selectedObject } from '../../functionConfiguration/view/customPoint';
 import { getModeConfigRelativeUrl, getTypeModeConfig3D, getTypeModeConfigDesk } from '../../functionConfiguration/view/modeConfig';
 import { setDefaultConfigurations, setLoadingPlayer, setModeConfigurations, setTypeConfig } from '../../store/actions/Settings';
@@ -48,6 +48,7 @@ export const SetDefafaultValue = () => {
 
                 setTimeout(() => {
                     showAnotation()
+                    hiddenWaterMark()
                 }, 500)
             }
 
@@ -66,6 +67,7 @@ export const SetDefafaultValue = () => {
                             setConfiguration({ ["Camera"]: "CameraMain" })
                         }
                         showAnotation()
+                        hiddenWaterMark()
                     }
 
                 } else if (getTypeModeConfig3D(modeConfigStore)) {
@@ -85,6 +87,7 @@ export const SetDefafaultValue = () => {
                     setTimeout(() => hiddenAnotation(), 600)
                     setTimeout(() => hiddenAnotation(), 1200)
                     setTimeout(() => hiddenAnotation(), 1800)
+                    setTimeout(() => hiddenWaterMark(), 1800)
 
 
 
@@ -93,6 +96,7 @@ export const SetDefafaultValue = () => {
                 setTimeout(() => {
                     dispatch(setDefaultConfigurations(getConfigurationDefaultValue()))
                     dispatch(setLoadingPlayer(true))
+                    hiddenWaterMark()
                 }, 1200)
 
             } else if (getTypeModeConfigDesk(modeConfigStore)) {
@@ -116,6 +120,7 @@ export const SetDefafaultValue = () => {
                     showAnotation()
                     dispatch(setDefaultConfigurations(getConfigurationDefaultValue()))
                     dispatch(setLoadingPlayer(true))
+
                 }, 1200)
             }
 
