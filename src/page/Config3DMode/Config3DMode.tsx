@@ -25,8 +25,7 @@ export const Config3DMode = () => {
 
     let classPlayer = `${s.player}`
     if (getTypeModeConfigDesk(modeConfig)) classPlayer += ` ${s.player_desk}`
-    console.log('weqweqw');
-
+    
     return (
 
         <>
