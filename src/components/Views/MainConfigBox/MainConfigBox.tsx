@@ -19,7 +19,7 @@ import s from './MainConfigBox.module.scss'
 
 export const MainConfigBox = () => {
 
-    const { pathname } = useLocation() 
+    const { pathname } = useLocation()
     const modeConfig = useStoreSelector(getModeConfig)
 
     let classPlayer = `${s.player}`
@@ -29,7 +29,7 @@ export const MainConfigBox = () => {
 
     if (checkConfigMouse(pathname)) classPanelColor += ` ${s.controlPositionPanelDeskMouse}`
     if (checkConfigKeyboard(pathname)) classPanelColor += ` ${s.controlPositionPanelDeskKeyboard}`
-  
+
 
     return (
         <>
@@ -62,7 +62,9 @@ export const MainConfigBox = () => {
                 <div className={s.wrapInfoDeskHeader}>
                     <div className={s.logoLigetch}><LogoLogitech /></div>
                     <div className={s.title}>Say goodbye to clunky default settings and hello to a personalized setup</div>
-                    <div className={s.description}>Let's get started by selecting either the mouse or keyboard option to begin customizing your setup</div>
+
+                    {!checkIsConfigObject(pathname) && <div className={s.description}>Let's get started by selecting either the mouse or keyboard option to begin customizing your setup</div>}
+
                 </div>
 
             }
