@@ -10,6 +10,18 @@ export const hiddenWaterMark = () => {
         elements[i].style.display = 'none';
     }
 }
+export const leftLogoThereekit3D = () => {
+    let elements: any = document.querySelectorAll('[class*="logo__"]');
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].style.left = '628px';
+    }
+}
+export const leftLogoThereekitDesk = () => {
+    let elements: any = document.querySelectorAll('[class*="logo__"]');
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].style.left = '8px';
+    }
+}
 
 
 export const hiddenAnotation = () => {

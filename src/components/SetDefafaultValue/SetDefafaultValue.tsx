@@ -7,7 +7,7 @@ import { checkSelectedThreekitKeyboard, getConfigurationDefaultValue } from '../
 import { checkConfigKeyboard, checkConfigMouse, getModeConfigUrl, getTypeConfig } from '../../functionConfiguration/routing/baseUrl';
 import { getObjectActive3DConfig, getObjectActiveDESKConfig } from '../../functionConfiguration/routing/threekitRouting';
 import { setDeskDefaultValue } from '../../functionConfiguration/threekitFunc/baseFuncThreekit';
-import { deleteNode, hiddenAnotation, hiddenWaterMark, showAnotation } from '../../functionConfiguration/view/annotationCollisionMessageStyle';
+import { deleteNode, hiddenAnotation, hiddenWaterMark, leftLogoThereekit3D, leftLogoThereekitDesk, showAnotation } from '../../functionConfiguration/view/annotationCollisionMessageStyle';
 import { selectedObject } from '../../functionConfiguration/view/customPoint';
 import { getModeConfigRelativeUrl, getTypeModeConfig3D, getTypeModeConfigDesk } from '../../functionConfiguration/view/modeConfig';
 import { setDefaultConfigurations, setLoadingPlayer, setModeConfigurations, setTypeConfig } from '../../store/actions/Settings';
@@ -68,6 +68,7 @@ export const SetDefafaultValue = () => {
                         }
                         showAnotation()
                         hiddenWaterMark()
+                        leftLogoThereekitDesk()
                     }
 
                 } else if (getTypeModeConfig3D(modeConfigStore)) {
@@ -88,6 +89,7 @@ export const SetDefafaultValue = () => {
                     setTimeout(() => hiddenAnotation(), 1200)
                     setTimeout(() => hiddenAnotation(), 1800)
                     setTimeout(() => hiddenWaterMark(), 1800)
+                    setTimeout(() => leftLogoThereekit3D(), 1800)
 
 
 
@@ -112,7 +114,7 @@ export const SetDefafaultValue = () => {
                         setConfiguration({ ["Camera"]: "CameraMain" })
                     }
                 }
-
+                leftLogoThereekitDesk()
                 showAnotation()
                 setDeskDefaultValue(setConfiguration)
 
@@ -154,6 +156,7 @@ export const SetDefafaultValue = () => {
                 }
 
                 showAnotation()
+                leftLogoThereekitDesk()
 
             } else if (getTypeModeConfig3D(modeConfigStore)) {
 
@@ -169,7 +172,7 @@ export const SetDefafaultValue = () => {
                         setConfiguration({ ["Camera"]: "Camera_Keyboard_3d" })
                     }
                 }
-
+                leftLogoThereekit3D()
                 hiddenAnotation()
 
 
@@ -185,7 +188,7 @@ export const SetDefafaultValue = () => {
             if (getTypeModeConfigDesk(modeConfigStore)) {
                 showAnotation()
                 setConfiguration({ ["Camera"]: "CameraMain" })
-
+                leftLogoThereekitDesk()
             }
         }
     }, [pathname]);
@@ -195,6 +198,7 @@ export const SetDefafaultValue = () => {
             if (modeConfig) {
                 let modeConfigStore = getModeConfigRelativeUrl(pathname);
                 if (getTypeModeConfigDesk(modeConfigStore)) {
+                   
                     setDeskDefaultValue(setConfiguration)
                     if (setConfiguration) {
                         if (checkConfigMouse(pathname)) {
@@ -207,6 +211,7 @@ export const SetDefafaultValue = () => {
                             setConfiguration({ ["Camera"]: "CameraMain" })
                         }
                     }
+                    leftLogoThereekitDesk()
                     showAnotation()
                 } else if (getTypeModeConfig3D(modeConfigStore)) {
 
@@ -221,6 +226,7 @@ export const SetDefafaultValue = () => {
                             setConfiguration({ ["Camera"]: "Camera_Keyboard_3d" })
                         }
                     }
+                    leftLogoThereekit3D()
                     hiddenAnotation()
                 }
 
