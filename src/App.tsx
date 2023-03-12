@@ -13,8 +13,8 @@ function App() {
   // const modeConfig = getModeConfigUrl(pathname)
   const saveConfig = {
     '3d': {
-      keyboard: 'x-xKWlWAm',
-      mouse: 'E-rokDhL_'
+      keyboard: '92F9azBQ6',
+      mouse: 'E-TiLDuOhvQ'
     },
     'desk': {
       all: 'PlFc34Htw'
