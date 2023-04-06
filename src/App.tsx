@@ -42,7 +42,7 @@ function App() {
   const projects = {
     credentials: {
       preview: {
-        publicToken: '1a743c11-2ce5-49b7-b221-dd27c905271a',
+        publicToken: '8d2b48a4-6fd6-458b-abf7-6250a211edba',
         orgId: '9eba6177-9cb1-4224-8e06-4f0d0f7cabbd',
       },
     },
