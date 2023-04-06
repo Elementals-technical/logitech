@@ -17,14 +17,15 @@ function App() {
       mouse: 'E-TiLDuOhvQ'
     },
     'desk': {
-      all: 'PlFc34Htw'
+      // all: 'PlFc34Htw'
+      allNew: '1_693v2wz'
     }
   }
   let configurationId = saveConfig['3d']['keyboard']
 
 
   if (checkModeDeskConfigUrl(pathname)) {
-    configurationId = saveConfig['desk']['all']
+    configurationId = saveConfig['desk']['allNew']
 
   } else if (checkMode3DConfigUrl(pathname)) {
     if (checkConfigKeyboard(pathname)) {

@@ -49,7 +49,7 @@ export const getObjectActiveDESKConfig = () => {
     const activeConfig3D: any = {
         "Customize keyboard": "Keyboard",
         "Customize mouse": "Mouse",
-        "Show in workspace": "Workspace",
+        "Show in workspace": "table2d",
     }
 
     const listAttrConfig = displayAttributes.filter((attr: any) => Object.keys(activeConfig3D).includes(attr['name']))

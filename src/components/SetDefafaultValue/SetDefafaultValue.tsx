@@ -68,13 +68,13 @@ export const SetDefafaultValue = () => {
                     setDeskDefaultValue(setConfiguration)
                     if (setConfiguration) {
                         if (checkConfigMouse(pathname)) {
-                            setConfiguration({ ["Camera"]: "Camera_Mous" })
+                            setConfiguration({ ["Camera"]: "2d_mouse_camera" })
 
                         } else if (checkConfigKeyboard(pathname)) {
 
-                            setConfiguration({ ["Camera"]: "Camera_Keyboard" })
+                            setConfiguration({ ["Camera"]:"2d_keyboard_camera"})
                         } else {
-                            setConfiguration({ ["Camera"]: "CameraMain" })
+                            setConfiguration({ ["Camera"]: "2d_main_camera" })
                         }
                         showAnotation()
 
@@ -127,13 +127,13 @@ export const SetDefafaultValue = () => {
 
                 if (setConfiguration) {
                     if (checkConfigMouse(pathname)) {
-                        setConfiguration({ ["Camera"]: "Camera_Mous" })
+                        setConfiguration({ ["Camera"]: "2d_mouse_camera" })
 
                     } else if (checkConfigKeyboard(pathname)) {
 
-                        setConfiguration({ ["Camera"]: "Camera_Keyboard" })
+                        setConfiguration({ ["Camera"]:"2d_keyboard_camera"})
                     } else {
-                        setConfiguration({ ["Camera"]: "CameraMain" })
+                        setConfiguration({ ["Camera"]: "2d_main_camera" })
                     }
                 }
                 leftLogoThereekitDesk()
@@ -172,11 +172,11 @@ export const SetDefafaultValue = () => {
                 setDeskDefaultValue(setConfiguration)
 
                 if (checkConfigMouse(pathname)) {
-                    setConfiguration({ ["Camera"]: "Camera_Mous" })
+                    setConfiguration({ ["Camera"]: "2d_mouse_camera" })
 
                 } else if (checkConfigKeyboard(pathname)) {
 
-                    setConfiguration({ ["Camera"]: "Camera_Keyboard" })
+                    setConfiguration({ ["Camera"]:"2d_keyboard_camera"})
                 }
 
                 showAnotation()
@@ -221,7 +221,7 @@ export const SetDefafaultValue = () => {
         } else if (typeConfig === '' && setConfiguration) {
             if (getTypeModeConfigDesk(modeConfigStore)) {
                 showAnotation()
-                setConfiguration({ ["Camera"]: "CameraMain" })
+                setConfiguration({ ["Camera"]: "2d_main_camera" })
                 leftLogoThereekitDesk()
             }
         }
@@ -236,13 +236,13 @@ export const SetDefafaultValue = () => {
                     setDeskDefaultValue(setConfiguration)
                     if (setConfiguration) {
                         if (checkConfigMouse(pathname)) {
-                            setConfiguration({ ["Camera"]: "Camera_Mous" })
+                            setConfiguration({ ["Camera"]: "2d_mouse_camera" })
 
                         } else if (checkConfigKeyboard(pathname)) {
 
-                            setConfiguration({ ["Camera"]: "Camera_Keyboard" })
+                            setConfiguration({ ["Camera"]:"2d_keyboard_camera"})
                         } else {
-                            setConfiguration({ ["Camera"]: "CameraMain" })
+                            setConfiguration({ ["Camera"]: "2d_main_camera" })
                         }
                     }
                     leftLogoThereekitDesk()
