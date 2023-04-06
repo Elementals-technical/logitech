@@ -73,8 +73,8 @@ export const MainConfigBox = () => {
                     <div className={s.boxTurn}>
                         <TurnOnOff />
                     </div>
-                    <InfoMessage Icon={<MouseIconSvg />} text="Use mouse wheel to zoom in/out" style={{ maxWidth: '135px' }} />
-                    <InfoMessage Icon={<Conponent360Drag />} text="Click & Drag to Rotate 360°" />
+                    {/* <InfoMessage Icon={<MouseIconSvg />} text="Use mouse wheel to zoom in/out" style={{ maxWidth: '135px' }} />
+                    <InfoMessage Icon={<Conponent360Drag />} text="Click & Drag to Rotate 360°" /> */}
                     <ViewControl />
                 </div>
 
